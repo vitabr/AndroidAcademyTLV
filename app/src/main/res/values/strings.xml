@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">AndroidAcademyTLV</string>
+    <string name="app_name">Android Academy TLV</string>
 
+    <!-- Labels -->
+    <string name="login">Login</string>
+
+    <!-- Login Screen -->
+    <string name="login_with_google">Sign In with Google+</string>
+    <string name="login_with_facebook">Sign In with Facebook</string>
+    <string name="skip">Skip</string>
+
+    <!-- MainScreen -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

@@ -17,7 +17,8 @@ public class SplashActivity extends Activity {
   private TimerTask mTimerTask = new TimerTask() {
     @Override
     public void run() {
-      Intent startIntent = MainActivity.getStartIntent(getBaseContext());
+      //Intent startIntent = MainActivity.getIntent(getBaseContext());
+      Intent startIntent = LoginActivity.getIntent(getBaseContext());
       startActivity(startIntent);
       finish();
     }
