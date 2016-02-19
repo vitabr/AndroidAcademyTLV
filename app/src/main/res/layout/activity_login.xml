@@ -14,7 +14,7 @@
         android:src="@drawable/bg_splash"/>
 
     <Space
-        android:id="@+id/spc_center"
+        android:id="@+id/spcCenter"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_centerInParent="true"/>
@@ -22,7 +22,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/spc_center"
+        android:layout_below="@id/spcCenter"
         android:layout_margin="20dp"
         >
 
@@ -33,7 +33,7 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/btn_google"
+                android:id="@+id/btnGoogle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -42,7 +42,7 @@
                 />
 
             <Button
-                android:id="@+id/btn_facebook"
+                android:id="@+id/btnFacebook"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -51,7 +51,7 @@
                 />
 
             <Button
-                android:id="@+id/btn_skip"
+                android:id="@+id/btnSkip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"

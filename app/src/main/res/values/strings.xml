@@ -9,6 +9,11 @@
     <string name="login_with_facebook">Sign In with Facebook</string>
     <string name="skip">Skip</string>
 
+    <!-- Setup Screen -->
+    <string name="email_hint">Enter valid email</string>
+    <string name="name_hint">Enter your nick name</string>
+    <string name="title_are_you">Are you developer or designer?</string>
+
     <!-- MainScreen -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

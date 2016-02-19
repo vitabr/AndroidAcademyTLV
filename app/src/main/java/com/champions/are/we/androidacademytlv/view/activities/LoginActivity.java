@@ -32,24 +32,25 @@ public class LoginActivity extends Activity implements View.OnClickListener {
   }
 
   private void prepareView(){
-    mLoginGoogle = (Button)findViewById(R.id.btn_google);
+    mLoginGoogle = (Button)findViewById(R.id.btnGoogle);
     mLoginGoogle.setOnClickListener(this);
 
-    mLoginFacebook = (Button)findViewById(R.id.btn_facebook);
+    mLoginFacebook = (Button)findViewById(R.id.btnFacebook);
     mLoginFacebook.setOnClickListener(this);
 
-    mSkip = (Button)findViewById(R.id.btn_skip);
+    mSkip = (Button)findViewById(R.id.btnSkip);
     mSkip.setOnClickListener(this);
   }
 
   @Override
   public void onClick(View v) {
     switch (v.getId()){
-      case R.id.btn_google:
-      case R.id.btn_facebook:
-      case R.id.btn_skip:
-
+      case R.id.btnGoogle:
+      case R.id.btnFacebook:
         // TODO implement login action
+        break;
+      case R.id.btnSkip:
+        startActivity(SetupActivity.getIntent(this));
         break;
     }
   }
