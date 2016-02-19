@@ -88,13 +88,14 @@ public class SetupActivity extends Activity implements View.OnClickListener {
         // TODO implement image selection and upload selection to server
         break;
 
-      case R.id.btnDesigner:
       case R.id.btnDeveloper:
-
         saveAndUpload(mName.getText().toString(), mEmail.getText().toString(), null);
+        startActivity(WelcomeActivity.getIntent(this, true));
+        break;
 
-        // TODO implement save user data and go to MainScreen
-        startActivity(MainActivity.getIntent(this));
+      case R.id.btnDesigner:
+        saveAndUpload(mName.getText().toString(), mEmail.getText().toString(), null);
+        startActivity(WelcomeActivity.getIntent(this, false));
         break;
 
     }

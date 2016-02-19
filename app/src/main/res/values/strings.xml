@@ -14,7 +14,13 @@
     <string name="name_hint">Enter your nick name</string>
     <string name="title_are_you">Are you developer or designer?</string>
 
-    <!-- MainScreen -->
+    <!-- Welcome Screen -->
+    <string name="welcome_title_developer">Hello there Androider</string>
+    <string name="welcome_title_designer">Hello there Designer</string>
+    <string name="welcome_text">Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome Yo yo yo, welcome </string>
+    <string name="start">Let\'s Start</string>
+
+    <!-- Main Screen -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

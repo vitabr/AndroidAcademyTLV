@@ -32,6 +32,12 @@
         </activity>
 
         <activity
+            android:name=".view.activities.WelcomeActivity"
+            android:label="@string/login"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
             android:name=".view.activities.SetupActivity"
             android:label="@string/login"
             android:theme="@style/AppTheme.NoActionBar">
