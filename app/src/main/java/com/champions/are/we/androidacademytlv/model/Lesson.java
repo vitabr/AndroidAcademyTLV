@@ -9,8 +9,6 @@ import io.realm.RealmObject;
  */
 public class Lesson extends RealmObject {
 
-
-
     private String mTitle;
     private Date mStartDate;
 

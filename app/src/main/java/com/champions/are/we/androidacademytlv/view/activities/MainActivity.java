@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.champions.are.we.androidacademytlv.BaseApplication;
 import com.champions.are.we.androidacademytlv.R;
 
 public class MainActivity extends AppCompatActivity
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
+
   }
 
   @Override
