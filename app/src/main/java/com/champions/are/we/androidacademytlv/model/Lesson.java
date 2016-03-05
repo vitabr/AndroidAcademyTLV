@@ -10,23 +10,41 @@ import io.realm.RealmObject;
 public class Lesson extends RealmObject {
 
     private String mTitle;
+    private String mDescription;
+    private String mLecturerUid;
     private Date mStartDate;
 
     public Lesson(){}
 
-    public String getmTitle() {
+    public String getTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
+    public void setTitle(String mTitle) {
         this.mTitle = mTitle;
     }
 
-    public Date getmStartDate() {
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String mDescription) {
+        this.mDescription = mDescription;
+    }
+
+    public String getmLecturerUid() {
+        return mLecturerUid;
+    }
+
+    public void setmLecturerUid(String mLecturerUid) {
+        this.mLecturerUid = mLecturerUid;
+    }
+
+    public Date getStartDate() {
         return mStartDate;
     }
 
-    public void setmStartDate(Date mStartDate) {
-        this.mStartDate = mStartDate;
+    public void setStartDate(Date startDate) {
+        this.mStartDate = startDate;
     }
 }

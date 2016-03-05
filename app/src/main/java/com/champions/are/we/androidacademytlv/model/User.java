@@ -7,12 +7,21 @@ import io.realm.RealmObject;
  */
 public class User extends RealmObject {
 
+    private String mUid;
     private String mFirstName;
     private String mLastName;
     private String mGender;
     private String mPhotoURL;
 
     public User(){}
+
+    public String getmUid() {
+        return mUid;
+    }
+
+    public void setmUid(String mUid) {
+        this.mUid = mUid;
+    }
 
     public String getmFirstName() {
         return mFirstName;
