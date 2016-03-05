@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Android Academy TLV</string>
 
+    <string name="facebook_app_id">1690466181233207</string>
+
     <!-- Labels -->
     <string name="login">Login</string>
 

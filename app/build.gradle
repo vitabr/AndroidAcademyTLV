@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.champions.are.we.androidacademytlv"
+        applicationId "com.aat.rntv"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
@@ -19,6 +19,10 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
@@ -26,4 +30,5 @@ dependencies {
     compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'io.realm:realm-android:0.87.4'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
 }
