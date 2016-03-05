@@ -11,11 +11,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.aat.rntv.model.Lesson;
+import com.aat.rntv.model.User;
 import com.champions.are.we.androidacademytlv.R;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,10 +32,15 @@ public class MainActivity extends AppCompatActivity
     return intent;
   }
 
+  private Realm mRealm;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    mRealm = Realm.getInstance(this);
+
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
@@ -38,7 +49,7 @@ public class MainActivity extends AppCompatActivity
       @Override
       public void onClick(View view) {
         Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show();
+                .setAction("Action", null).show();
       }
     });
 
@@ -51,6 +62,26 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
 
+    printOutDb();
+
+  }
+
+  private void printOutDb(){
+
+
+    Log.e("VITO", "Start print out:");
+    RealmResults<User> results = mRealm.where(User.class).findAll();
+
+    for(User c:results) {
+      Log.e("VITO", c.getmFirstName());
+    }
+
+    RealmResults<Lesson> results1 = mRealm.where(Lesson.class).findAll();
+
+    for(Lesson c:results1) {
+      Log.e("VITO", c.getmTitle());
+    }
+    Log.e("VITO", "End print out.");
   }
 
   @Override
