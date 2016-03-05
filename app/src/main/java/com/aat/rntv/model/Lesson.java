@@ -1,4 +1,4 @@
-package com.champions.are.we.androidacademytlv.model;
+package com.aat.rntv.model;
 
 import java.util.Date;
 
@@ -16,35 +16,35 @@ public class Lesson extends RealmObject {
 
     public Lesson(){}
 
-    public String getTitle() {
+    public String getmTitle() {
         return mTitle;
     }
 
-    public void setTitle(String mTitle) {
-        this.mTitle = mTitle;
+    public void setmTitle(String title) {
+        this.mTitle = title;
     }
 
-    public String getDescription() {
+    public String getmDescription() {
         return mDescription;
     }
 
-    public void setDescription(String mDescription) {
-        this.mDescription = mDescription;
+    public void setmDescription(String description) {
+        this.mDescription = description;
     }
 
     public String getmLecturerUid() {
         return mLecturerUid;
     }
 
-    public void setmLecturerUid(String mLecturerUid) {
-        this.mLecturerUid = mLecturerUid;
+    public void setmLecturerUid(String lecturerUid) {
+        this.mLecturerUid = lecturerUid;
     }
 
-    public Date getStartDate() {
+    public Date getmStartDate() {
         return mStartDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setmStartDate(Date startDate) {
         this.mStartDate = startDate;
     }
 }

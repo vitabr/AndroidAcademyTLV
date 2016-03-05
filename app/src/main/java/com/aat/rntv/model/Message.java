@@ -1,4 +1,4 @@
-package com.champions.are.we.androidacademytlv.model;
+package com.aat.rntv.model;
 
 import io.realm.RealmObject;
 

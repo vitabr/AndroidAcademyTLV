@@ -1,4 +1,4 @@
-package com.champions.are.we.androidacademytlv.view.activities;
+package com.aat.rntv.view.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.champions.are.we.androidacademytlv.BaseApplication;
 import com.champions.are.we.androidacademytlv.R;
 
 public class MainActivity extends AppCompatActivity

@@ -1,4 +1,4 @@
-package com.champions.are.we.androidacademytlv.view.activities;
+package com.aat.rntv.view.activities;
 
 import android.app.Activity;
 import android.content.Context;
