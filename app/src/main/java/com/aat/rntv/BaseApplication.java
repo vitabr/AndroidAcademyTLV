@@ -18,8 +18,10 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Firebase.setAndroidContext(this);
         singleton = this;
+
+        Firebase.setAndroidContext(this);
+
     }
 
     private void createDumpDB(){
