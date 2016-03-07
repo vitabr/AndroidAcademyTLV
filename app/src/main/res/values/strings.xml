@@ -27,4 +27,14 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- Tabs names -->
+    <string name="tab_classes">classes</string>
+    <string name="tab_favorites">favorites</string>
+    <string name="tab_pickups">pickups</string>
+    <string name="tab_rsvp">rsvp</string>
+
+    <!-- Transactions names -->
+    <string name="trn_developer">transaction_setup_developer</string>
+    <string name="trn_designer">transaction_setup_designer</string>
 </resources>

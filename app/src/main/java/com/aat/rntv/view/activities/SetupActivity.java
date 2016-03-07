@@ -1,6 +1,7 @@
 package com.aat.rntv.view.activities;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -90,14 +91,39 @@ public class SetupActivity extends Activity implements View.OnClickListener {
 
       case R.id.btnDeveloper:
         saveAndUpload(mName.getText().toString(), mEmail.getText().toString(), null);
-        startActivity(WelcomeActivity.getIntent(this, true));
+
+        startAnimatedTransition(mDeveloper);
         break;
 
       case R.id.btnDesigner:
         saveAndUpload(mName.getText().toString(), mEmail.getText().toString(), null);
-        startActivity(WelcomeActivity.getIntent(this, false));
+
+        startAnimatedTransition(mDesigner);
         break;
 
     }
+  }
+
+  private void startAnimatedTransition(View sharedView) {
+
+    Intent intent;
+    String transitionName;
+
+    switch (sharedView.getId()){
+
+      case R.id.btnDeveloper:
+        intent = WelcomeActivity.getIntent(this, true);
+        transitionName = getString(R.string.trn_developer);
+        break;
+
+      case R.id.btnDesigner:
+      default:
+        intent = WelcomeActivity.getIntent(this, false);
+        transitionName = getString(R.string.trn_designer);
+        break;
+    }
+
+    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(SetupActivity.this, sharedView, transitionName);
+    startActivity(intent, transitionActivityOptions.toBundle());
   }
 }

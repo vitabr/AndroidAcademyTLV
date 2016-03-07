@@ -83,6 +83,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:src="@drawable/ic_develper"
+                    android:transitionName="@string/trn_developer"
                     />
 
                 <ImageButton
@@ -92,6 +93,7 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:src="@drawable/ic_designer"
+                    android:transitionName="@string/trn_designer"
                     />
             </LinearLayout>
 
