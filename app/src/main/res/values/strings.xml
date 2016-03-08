@@ -37,4 +37,8 @@
     <!-- Transactions names -->
     <string name="trn_developer">transaction_setup_developer</string>
     <string name="trn_designer">transaction_setup_designer</string>
+
+    <!--Error Handling-->
+    <string name="facebook_login_cancelled">Facebook Login Cancelled</string>
+    <string name="facebook_login_failed">Facebook Login Failed</string>
 </resources>

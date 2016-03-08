@@ -5,6 +5,6 @@ package com.aat.rntv.model;
  */
 public interface Constants {
 
-  String FACEBOOK_CANCELLED = "Facebook Cancelled";
+  String FIREBASE_ADDRESS = "https://flickering-torch-6484.firebaseio.com";
 
 }
