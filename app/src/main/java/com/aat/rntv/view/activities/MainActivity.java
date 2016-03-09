@@ -6,30 +6,39 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.transition.Fade;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TabHost;
 
 import com.aat.rntv.model.Lesson;
 import com.aat.rntv.model.User;
+import com.aat.rntv.view.fragments.FavoritesFragment;
+import com.aat.rntv.view.fragments.MainFragment;
+import com.aat.rntv.view.fragments.PickUpsFragment;
+import com.aat.rntv.view.fragments.RcvpFragment;
 import com.champions.are.we.androidacademytlv.R;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-public class MainActivity extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends FragmentActivity
+implements NavigationView.OnNavigationItemSelectedListener {
 
 
   private DrawerLayout mDrawerLayout;
   private ActionBarDrawerToggle mDrawerToggle;
+  private ViewPager mViewPager;
 
   public static Intent getIntent(Context context) {
     Intent intent = new Intent(context, MainActivity.class);
@@ -44,28 +53,6 @@ public class MainActivity extends AppCompatActivity
     setContentView(R.layout.activity_main);
 
     mRealm = Realm.getInstance(this);
-
-//    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//    setSupportActionBar(toolbar);
-
-//    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//    fab.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show();
-//      }
-//    });
-//
-//    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//    ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//    drawer.setDrawerListener(toggle);
-//    toggle.syncState();
-//
-//    NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//    navigationView.setNavigationItemSelectedListener(this);
-
     printOutDb();
     setupWindowAnimations();
 
@@ -74,7 +61,6 @@ public class MainActivity extends AppCompatActivity
   }
 
   private void printOutDb(){
-
 
     Log.e("VITO", "Start print out:");
     RealmResults<User> results = mRealm.where(User.class).findAll();
@@ -149,6 +135,62 @@ public class MainActivity extends AppCompatActivity
   }
 
   /***************************************************/
+  /*** Inner classes: Fragments,Adapters etc. ********/
+  /***************************************************/
+  private class ViewPagerAdapter extends FragmentPagerAdapter {
+    public ViewPagerAdapter(FragmentManager fm) {
+      super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int i) {
+
+      Fragment fragment = null;
+      switch (i){
+        case 0:
+          fragment = new MainFragment();
+          break;
+        case 1:
+          fragment = new FavoritesFragment();
+          break;
+        case 2:
+          fragment = new PickUpsFragment();
+          break;
+        case 3:
+          fragment = new RcvpFragment();
+          break;
+      }
+      return fragment;
+    }
+
+    @Override
+    public int getCount() {
+      return 4;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int i) {
+      switch (i) {
+        case 0:
+          return "Main";
+
+        case 1:
+          return "Favorites";
+
+        case 2:
+          return "PickUps";
+
+        case 3:
+          return "RCVP";
+
+        default:
+          return "You fucked Up!";
+      }
+    }
+  }
+
+
+  /***************************************************/
   /*** UI setup functions ****************************/
   /***************************************************/
 
@@ -165,47 +207,38 @@ public class MainActivity extends AppCompatActivity
   }
 
   private void setupUI(){
-    setupToolbar();
-    setupTabs();
+    //setupToolbar();
+    //setupTabs();
+    setupViewPager();
     setupFAB();
   }
 
-  private void setupTabs(){
-    TabHost host = (TabHost)findViewById(android.R.id.tabhost);
-    host.setup();
+  private void setupViewPager(){
+    TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+    final ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+    tabLayout.setTabsFromPagerAdapter(pagerAdapter);
+    tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-    TabHost.TabSpec spec = host.newTabSpec("Classes");
-    spec.setIndicator("Classes", getDrawable(R.drawable.tab_icon_selector));
-    spec.setContent(R.id.tab_classes);
-    host.addTab(spec);
-
-    spec = host.newTabSpec("Favorites");
-    spec.setContent(R.id.tab_favorites);
-    spec.setIndicator("Favorites", getDrawable(R.drawable.tab_icon_selector));
-    host.addTab(spec);
-
-    spec = host.newTabSpec("Pick Ups");
-    spec.setContent(R.id.tab_pickups);
-    spec.setIndicator("Pick Ups", getDrawable(R.drawable.tab_icon_selector));
-    host.addTab(spec);
-
-    spec = host.newTabSpec("RSVP");
-    spec.setContent(R.id.tab_rsvp);
-    spec.setIndicator("RSVP", getDrawable(R.drawable.tab_icon_selector));
-    host.addTab(spec);
-
-    // Drawer toggle button visually placed on tab bar.
-    // So we initialize it here
-    findViewById(R.id.btnDrawer).setOnClickListener(new View.OnClickListener() {
+    mViewPager = (ViewPager) findViewById(R.id.pager);
+    mViewPager.setAdapter(pagerAdapter);
+    mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+    tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
       @Override
-      public void onClick(View v) {
-        if(mDrawerLayout.isDrawerOpen(GravityCompat.START)){
-          mDrawerLayout.closeDrawers();
-        }else{
-          mDrawerLayout.openDrawer(GravityCompat.START);
-        }
+      public void onTabSelected(TabLayout.Tab tab) {
+        mViewPager.setCurrentItem(tab.getPosition());
+      }
+
+      @Override
+      public void onTabUnselected(TabLayout.Tab tab) {
+
+      }
+
+      @Override
+      public void onTabReselected(TabLayout.Tab tab) {
+
       }
     });
+
   }
 
   private void setupToolbar() {
@@ -218,8 +251,8 @@ public class MainActivity extends AppCompatActivity
     mDrawerLayout.setDrawerListener(mDrawerToggle);
     mDrawerToggle.syncState();
 
-    NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-    navigationView.setNavigationItemSelectedListener(this);
+//    NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//    navigationView.setNavigationItemSelectedListener(this);
   }
 
   private void setupFAB() {

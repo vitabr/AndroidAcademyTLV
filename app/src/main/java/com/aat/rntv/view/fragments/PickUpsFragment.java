@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ import io.realm.RealmResults;
 /**
  * Created by Vito on 3/5/16.
  */
-public class MainFragment extends Fragment {
+public class PickUpsFragment extends Fragment {
 
 
     private CardView mTitle;
@@ -29,19 +28,16 @@ public class MainFragment extends Fragment {
     private TextView mLessonDate;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        Log.e("VITO", "MainFragment:onCreateView");
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        Log.e("VITO", "MainFragment:onViewCreated");
 
         mTitle = (CardView) view.findViewById(R.id.card_view);
         mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
@@ -50,10 +46,11 @@ public class MainFragment extends Fragment {
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        //mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
         RealmResults<Lesson> lessons = Realm.getInstance(getContext()).where(Lesson.class).findAll();
