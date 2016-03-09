@@ -7,51 +7,40 @@ import io.realm.RealmObject;
  */
 public class User extends RealmObject {
 
-    private String mUid;
-    private String mFirstName;
-    private String mLastName;
-    private String mGender;
-    private String mPhotoURL;
+  private String mUid;
+  private String mDisplayName;
+  private String mGender;
+  private String mPhotoURL;
 
-    public User(){}
+  public String getUid() {
+    return mUid;
+  }
 
-    public String getmUid() {
-        return mUid;
-    }
+  public void setUid(String mUid) {
+    this.mUid = mUid;
+  }
 
-    public void setmUid(String mUid) {
-        this.mUid = mUid;
-    }
+  public String getDisplayName() {
+    return mDisplayName;
+  }
 
-    public String getmFirstName() {
-        return mFirstName;
-    }
+  public void setDisplayName(String mDisplayName) {
+    this.mDisplayName = mDisplayName;
+  }
 
-    public void setmFirstName(String mFirstName) {
-        this.mFirstName = mFirstName;
-    }
+  public String getGender() {
+      return mGender;
+  }
 
-    public String getmLastName() {
-        return mLastName;
-    }
+  public void setGender(String mGender) {
+    this.mGender = mGender;
+  }
 
-    public void setmLastName(String mLastName) {
-        this.mLastName = mLastName;
-    }
+  public String getPhotoURL() {
+    return mPhotoURL;
+  }
 
-    public String getmGender() {
-        return mGender;
-    }
-
-    public void setmGender(String mGender) {
-        this.mGender = mGender;
-    }
-
-    public String getmPhotoURL() {
-        return mPhotoURL;
-    }
-
-    public void setmPhotoURL(String mPhotoURL) {
-        this.mPhotoURL = mPhotoURL;
-    }
+  public void setPhotoURL(String mPhotoURL) {
+    this.mPhotoURL = mPhotoURL;
+  }
 }

@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
     RealmResults<User> results = mRealm.where(User.class).findAll();
 
     for(User c:results) {
-      Log.e("VITO", c.getmFirstName());
+      Log.e("VITO", c.getDisplayName());
     }
 
     RealmResults<Lesson> results1 = mRealm.where(Lesson.class).findAll();

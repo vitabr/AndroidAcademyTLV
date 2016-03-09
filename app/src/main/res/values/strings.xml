@@ -39,6 +39,7 @@
     <string name="trn_designer">transaction_setup_designer</string>
 
     <!--Error Handling-->
+    <string name="no_internet">No Internet Connection</string>
     <string name="facebook_login_cancelled">Facebook Login Cancelled</string>
     <string name="facebook_login_failed">Facebook Login Failed</string>
 </resources>
