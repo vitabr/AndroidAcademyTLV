@@ -53,11 +53,12 @@ implements NavigationView.OnNavigationItemSelectedListener {
     setContentView(R.layout.activity_main);
 
     mRealm = Realm.getInstance(this);
+
     printOutDb();
+
     setupWindowAnimations();
 
     setupUI();
-
   }
 
   private void printOutDb(){
@@ -207,8 +208,8 @@ implements NavigationView.OnNavigationItemSelectedListener {
   }
 
   private void setupUI(){
-    //setupToolbar();
-    //setupTabs();
+    mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+    setupNavigationView();
     setupViewPager();
     setupFAB();
   }
@@ -241,18 +242,26 @@ implements NavigationView.OnNavigationItemSelectedListener {
 
   }
 
-  private void setupToolbar() {
+  private void setupNavigationView() {
     //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     //setSupportActionBar(toolbar);
 
-    mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-    mDrawerToggle = new ActionBarDrawerToggle(
-        this, mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-    mDrawerLayout.setDrawerListener(mDrawerToggle);
-    mDrawerToggle.syncState();
 
-//    NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//    navigationView.setNavigationItemSelectedListener(this);
+//    mDrawerToggle = new ActionBarDrawerToggle(
+//        this, mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//    mDrawerLayout.setDrawerListener(mDrawerToggle);
+//    mDrawerToggle.syncState();
+
+//    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//    mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name,
+//        R.string.app_name);
+//
+//    mDrawerLayout.setDrawerListener(mDrawerToggle);
+//
+//    mDrawerToggle.syncState();
+
+    NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+    navigationView.setNavigationItemSelectedListener(this);
   }
 
   private void setupFAB() {

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <!-- Background -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_splash"
+        android:scaleType="fitXY"/>
+
+    <Space
+        android:id="@+id/spcCenter"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/spcCenter"
+        android:layout_margin="20dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  "
+            android:id="@+id/textView2"
+            android:textAlignment="center"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/ivUurPhoto"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/we"
+        android:scaleType="centerCrop"/>
+
+</RelativeLayout>
