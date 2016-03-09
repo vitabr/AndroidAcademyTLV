@@ -66,7 +66,7 @@ implements NavigationView.OnNavigationItemSelectedListener {
     RealmResults<User> results = mRealm.where(User.class).findAll();
 
     for(User c:results) {
-      Log.e("VITO", c.getDisplayName());
+      Log.e("VITO", c.getmFirstName());
     }
 
     RealmResults<Lesson> results1 = mRealm.where(Lesson.class).findAll();

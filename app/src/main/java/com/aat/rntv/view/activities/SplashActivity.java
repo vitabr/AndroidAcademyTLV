@@ -72,12 +72,12 @@ public class SplashActivity extends Activity {
     myRealm.beginTransaction();
 
     User user1 = myRealm.createObject(User.class);
-    user1.setUid("user001");
-    user1.setDisplayName("Vito Abramov");
+    user1.setmUid("user001");
+    user1.setmFirstName("Vito Abramov");
 
     User user = myRealm.createObject(User.class);
-    user.setUid("user002");
-    user1.setDisplayName("Refael Ozeri");
+    user.setmUid("user002");
+    user1.setmFirstName("Refael Ozeri");
 
     Lesson lesson = myRealm.createObject(Lesson.class);
     lesson.setmLecturerUid("user001");
