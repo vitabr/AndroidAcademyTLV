@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.aat.rntv.model.RealmLesson;
+import com.aat.rntv.model.Lesson;
 import com.champions.are.we.androidacademytlv.R;
 
 import io.realm.RealmResults;
@@ -17,7 +17,7 @@ import io.realm.RealmResults;
  * Created by vito on 3/8/2016.
  */
 public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHolder> {
-    private RealmResults<RealmLesson> mDataset;
+    private RealmResults<Lesson> mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -39,7 +39,7 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MainListAdapter(RealmResults<RealmLesson> myDataset) {
+    public MainListAdapter(RealmResults<Lesson> myDataset) {
       mDataset = myDataset;
 
       Log.e("VITO", "MainListAdapter:1-Constractor: " + mDataset);
@@ -67,8 +67,8 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
       Log.e("VITO", "MainListAdapter:3-onBindViewHolder");
       // - get element from your dataset at this position
       // - replace the contents of the view with that element
-      holder.mTitle.setText(((RealmLesson)mDataset.get(position)).getmTitle());
-      holder.mDescription.setText(((RealmLesson)mDataset.get(position)).getmDescription());
+      holder.mTitle.setText(((Lesson)mDataset.get(position)).getmTitle());
+      holder.mDescription.setText(((Lesson)mDataset.get(position)).getmDescription());
       holder.mBackground.setImageResource(R.drawable.side_nav_bar);
 
     }

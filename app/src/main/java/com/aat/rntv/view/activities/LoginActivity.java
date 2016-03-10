@@ -13,15 +13,8 @@ import com.aat.rntv.BaseApplication;
 import com.aat.rntv.business.Backend;
 import com.aat.rntv.business.LoginCallback;
 import com.champions.are.we.androidacademytlv.R;
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
-
-import java.util.Arrays;
 
 /**
  * Created by vito on 2/18/2016.
@@ -30,6 +23,8 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
 
   public static Intent getIntent(Context context){
     Intent intent = new Intent(context, LoginActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     return intent;
   }
 

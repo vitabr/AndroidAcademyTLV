@@ -13,7 +13,7 @@ public class SharedPref {
   //initialize the shared pref.
   private static SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(BaseApplication.getInstance());
 
-  public static void setMyOwnUser(String userId, String email, String displayName, String profileImageURL, String provider) {
+  public static void saveMyOwnUser(String userId, String email, String displayName, String profileImageURL, String provider) {
     mSharedPreferences.edit().putString("userId", userId).apply();
     mSharedPreferences.edit().putString("email", email).apply();
     mSharedPreferences.edit().putString("displayName", displayName).apply();

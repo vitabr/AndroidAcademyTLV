@@ -8,9 +8,8 @@ import io.realm.RealmObject;
 public class User extends RealmObject {
 
   private String mUid;
-  private String mFirstName;
-  private String mLastName;
-  private String mGender;
+  private String mEmail;
+  private String mDisplayName;
   private String mPhotoURL;
 
   public User(){}
@@ -23,28 +22,20 @@ public class User extends RealmObject {
     this.mUid = mUid;
   }
 
-  public String getmFirstName() {
-    return mFirstName;
+  public String getmEmail() {
+    return mEmail;
   }
 
-  public void setmFirstName(String mFirstName) {
-    this.mFirstName = mFirstName;
+  public void setmEmail(String mEmail) {
+    this.mEmail = mEmail;
   }
 
-  public String getmLastName() {
-    return mLastName;
+  public String getmDisplayName() {
+    return mDisplayName;
   }
 
-  public void setmLastName(String mLastName) {
-    this.mLastName = mLastName;
-  }
-
-  public String getmGender() {
-    return mGender;
-  }
-
-  public void setmGender(String mGender) {
-    this.mGender = mGender;
+  public void setmDisplayName(String mDisplayName) {
+    this.mDisplayName = mDisplayName;
   }
 
   public String getmPhotoURL() {
