@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -38,7 +40,10 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    getWindow().setStatusBarColor(Color.TRANSPARENT);
+    // remove title
+    requestWindowFeature(Window.FEATURE_NO_TITLE);
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
     FacebookSdk.sdkInitialize(BaseApplication.getInstance());
     mCallbackManager = CallbackManager.Factory.create();
     setContentView(R.layout.activity_login);
