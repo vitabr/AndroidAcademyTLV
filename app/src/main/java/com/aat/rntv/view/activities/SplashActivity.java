@@ -7,12 +7,11 @@ import android.util.Log;
 
 import com.aat.rntv.BaseApplication;
 import com.aat.rntv.business.Utils;
-import com.aat.rntv.model.Lesson;
+import com.aat.rntv.model.RealmLesson;
 import com.aat.rntv.model.User;
 import com.champions.are.we.androidacademytlv.R;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
-import com.shaded.fasterxml.jackson.databind.deser.Deserializers;
 
 import java.util.Date;
 import java.util.Timer;
@@ -44,7 +43,7 @@ public class SplashActivity extends Activity {
     setContentView(R.layout.activity_splash);
 
     //TODO - Remove this after testing. logs out from facebook every entry.
-    FacebookSdk.sdkInitialize(getApplicationContext());
+    FacebookSdk.sdkInitialize(BaseApplication.getInstance());
     LoginManager.getInstance().logOut();
 
     if (mShouldPrintKeyHash) {
@@ -79,7 +78,7 @@ public class SplashActivity extends Activity {
     user.setmUid("user002");
     user1.setmFirstName("Refael Ozeri");
 
-    Lesson lesson = myRealm.createObject(Lesson.class);
+    RealmLesson lesson = myRealm.createObject(RealmLesson.class);
     lesson.setmLecturerUid("user001");
     lesson.setmStartDate(new Date());
     lesson.setmTitle("Lecture + lab session. Bring your laptops with eclipse and android SDK working.");
@@ -101,7 +100,7 @@ public class SplashActivity extends Activity {
             "\n" +
             "• Toast");
 
-    Lesson lesson1 = myRealm.createObject(Lesson.class);
+    RealmLesson lesson1 = myRealm.createObject(RealmLesson.class);
     lesson1.setmLecturerUid("user002");
     lesson1.setmStartDate(new Date());
     lesson1.setmTitle("Lecture #2: Views, Manifest, Permissions & Explicit Intent");

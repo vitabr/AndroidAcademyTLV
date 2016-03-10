@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.aat.rntv.BaseApplication;
 import com.aat.rntv.business.Backend;
 import com.aat.rntv.business.LoginCallback;
 import com.champions.are.we.androidacademytlv.R;
@@ -40,7 +42,7 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    FacebookSdk.sdkInitialize(getApplicationContext());
+    FacebookSdk.sdkInitialize(BaseApplication.getInstance());
     mCallbackManager = CallbackManager.Factory.create();
     setContentView(R.layout.activity_login);
 
@@ -75,12 +77,12 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
 
   @Override
   public void onSuccess(String response) {
-
+    startActivity(SetupActivity.getIntent(this));
   }
 
   @Override
   public void onError(String e) {
-
+    Toast.makeText(LoginActivity.this, e, Toast.LENGTH_SHORT).show();
   }
 
   @Override

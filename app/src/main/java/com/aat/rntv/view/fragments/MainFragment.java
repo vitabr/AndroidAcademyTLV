@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.aat.rntv.controller.MainListAdapter;
-import com.aat.rntv.model.Lesson;
+import com.aat.rntv.model.RealmLesson;
 import com.champions.are.we.androidacademytlv.R;
 
 import io.realm.Realm;
@@ -56,7 +56,7 @@ public class MainFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         // specify an adapter (see also next example)
-        RealmResults<Lesson> lessons = Realm.getInstance(getContext()).where(Lesson.class).findAll();
+        RealmResults<RealmLesson> lessons = Realm.getInstance(getContext()).where(RealmLesson.class).findAll();
         mAdapter = new MainListAdapter(lessons);
         mRecyclerView.setAdapter(mAdapter);
     }

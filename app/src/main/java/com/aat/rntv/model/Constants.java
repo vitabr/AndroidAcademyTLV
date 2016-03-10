@@ -7,4 +7,6 @@ public interface Constants {
 
   String FIREBASE_ADDRESS = "https://flickering-torch-6484.firebaseio.com";
 
+  String FIREBASE_LESSONS = "/Lessons";
+
 }

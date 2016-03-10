@@ -21,24 +21,32 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.aat.rntv.model.Lesson;
+import com.aat.rntv.model.Constants;
+import com.aat.rntv.model.FirebaseLesson;
+import com.aat.rntv.model.RealmLesson;
 import com.aat.rntv.model.User;
 import com.aat.rntv.view.fragments.FavoritesFragment;
 import com.aat.rntv.view.fragments.MainFragment;
 import com.aat.rntv.view.fragments.PickUpsFragment;
 import com.aat.rntv.view.fragments.RcvpFragment;
 import com.champions.are.we.androidacademytlv.R;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import java.util.ArrayList;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
 
 public class MainActivity extends FragmentActivity
-implements NavigationView.OnNavigationItemSelectedListener {
-
+  implements NavigationView.OnNavigationItemSelectedListener, Constants {
 
   private DrawerLayout mDrawerLayout;
   private ActionBarDrawerToggle mDrawerToggle;
   private ViewPager mViewPager;
+  private ArrayList<FirebaseLesson> mLessonsList;
 
   public static Intent getIntent(Context context) {
     Intent intent = new Intent(context, MainActivity.class);
@@ -59,6 +67,30 @@ implements NavigationView.OnNavigationItemSelectedListener {
     setupWindowAnimations();
 
     setupUI();
+
+    loadData();
+  }
+
+  private void loadData() {
+
+    mLessonsList = new ArrayList<>();
+
+    final Firebase firebase = new Firebase(FIREBASE_ADDRESS + FIREBASE_LESSONS);
+    firebase.addValueEventListener(new ValueEventListener() {
+      @Override
+      public void onDataChange(DataSnapshot snapshot) {
+        System.out.println("There are " + snapshot.getChildrenCount() + " lessons");
+        for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+          FirebaseLesson lesson = postSnapshot.getValue(FirebaseLesson.class);
+          mLessonsList.add(lesson);
+        }
+      }
+
+      @Override
+      public void onCancelled(FirebaseError firebaseError) {
+        System.out.println("The read failed: " + firebaseError.getMessage());
+      }
+    });
   }
 
   private void printOutDb(){
@@ -67,12 +99,12 @@ implements NavigationView.OnNavigationItemSelectedListener {
     RealmResults<User> results = mRealm.where(User.class).findAll();
 
     for(User c:results) {
-      Log.e("VITO", c.getmFirstName());
+//      Log.e("VITO", c.getmFirstName());
     }
 
-    RealmResults<Lesson> results1 = mRealm.where(Lesson.class).findAll();
+    RealmResults<RealmLesson> results1 = mRealm.where(RealmLesson.class).findAll();
 
-    for(Lesson c:results1) {
+    for(RealmLesson c:results1) {
       Log.e("VITO", c.getmTitle());
     }
     Log.e("VITO", "End print out.");

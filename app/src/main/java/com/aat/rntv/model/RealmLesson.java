@@ -7,14 +7,14 @@ import io.realm.RealmObject;
 /**
  * Created by vito on 2/18/2016.
  */
-public class Lesson extends RealmObject {
+public class RealmLesson extends RealmObject {
 
     private String mTitle;
     private String mDescription;
     private String mLecturerUid;
     private Date mStartDate;
 
-    public Lesson(){}
+    public RealmLesson(){}
 
     public String getmTitle() {
         return mTitle;
