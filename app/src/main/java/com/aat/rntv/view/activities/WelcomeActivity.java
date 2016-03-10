@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
+import com.aat.rntv.business.SharedPref;
 import com.champions.are.we.androidacademytlv.R;
 
 /**
@@ -14,7 +17,11 @@ import com.champions.are.we.androidacademytlv.R;
  */
 public class WelcomeActivity extends Activity implements View.OnClickListener {
 
+  private static final String DEVELOPER = "Developer";
+  private static final String DESIGNER = "Designer";
+
   private static final String TYPE = "IsDeveloper";
+
   public static Intent getIntent(Context context, boolean isDeveloper){
     Intent intent = new Intent(context, WelcomeActivity.class);
     intent.putExtra(TYPE, isDeveloper);
@@ -22,6 +29,7 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
   }
 
   private Button mStart;
+  private boolean mIsDeveloper;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +59,10 @@ public class WelcomeActivity extends Activity implements View.OnClickListener {
   public void onClick(View v) {
     switch (v.getId()){
       case R.id.btnStart:
+
+        String profession = mIsDeveloper ? DEVELOPER : DESIGNER;
+        SharedPref.setProfession(profession);
+
         startActivity(MainActivity.getIntent(this));
         break;
     }

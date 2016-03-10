@@ -7,6 +7,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.text.TextUtils;
 
+import com.aat.rntv.business.SharedPref;
 import com.aat.rntv.business.Utils;
 import com.champions.are.we.androidacademytlv.R;
 
@@ -18,13 +19,22 @@ import java.util.TimerTask;
  */
 public class SplashActivity extends Activity {
 
-  private boolean mShouldPrintKeyHash = false;
+  private boolean mShouldPrintKeyHash = true;
 
   private TimerTask mTimerTask = new TimerTask() {
     @Override
     public void run() {
-      Intent startIntent = LoginActivity.getIntent(getBaseContext());
-      startActivity(startIntent);
+      String userId = SharedPref.getUserId();
+      String profession = SharedPref.getProfession();
+
+      if (TextUtils.isEmpty(userId)) {
+        navigateToLogin();
+      } else if (TextUtils.isEmpty(profession)) {
+        navigateToSetup();
+      } else {
+        navigateToMainscreen();
+      }
+
       finish();
     }
   };
@@ -39,6 +49,18 @@ public class SplashActivity extends Activity {
     }
 
     new Timer().schedule(mTimerTask, 3000);
+  }
+
+  private void navigateToLogin() {
+    startActivity(LoginActivity.getIntent(this));
+  }
+
+  private void navigateToSetup() {
+    startActivity(SetupActivity.getIntent(this));
+  }
+
+  private void navigateToMainscreen() {
+    startActivity(MainActivity.getIntent(this));
   }
 
 }
