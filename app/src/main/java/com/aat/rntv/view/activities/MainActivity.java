@@ -15,6 +15,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.text.TextUtils;
 import android.transition.Fade;
 import android.util.Log;
 import android.view.Menu;
@@ -22,7 +23,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.aat.rntv.business.SharedPref;
 import com.aat.rntv.business.Utils;
 import com.aat.rntv.model.Constants;
 import com.aat.rntv.model.Lesson;
@@ -31,7 +35,9 @@ import com.aat.rntv.view.fragments.FavoritesFragment;
 import com.aat.rntv.view.fragments.LessonsFragment;
 import com.aat.rntv.view.fragments.PickUpsFragment;
 import com.aat.rntv.view.fragments.RcvpFragment;
+import com.aat.rntv.view.view_utils.CircleTransform;
 import com.champions.are.we.androidacademytlv.R;
+import com.squareup.picasso.Picasso;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -42,6 +48,7 @@ public class MainActivity extends FragmentActivity
   private DrawerLayout mDrawerLayout;
   private ActionBarDrawerToggle mDrawerToggle;
   private ViewPager mViewPager;
+  private NavigationView mNavigationView;
 
   public static Intent getIntent(Context context) {
     Intent intent = new Intent(context, MainActivity.class);
@@ -219,7 +226,23 @@ public class MainActivity extends FragmentActivity
     mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
     setupNavigationView();
     setupViewPager();
+    fillUserInfo();
     setupFAB();
+  }
+  private void fillUserInfo(){
+    String photoURL = SharedPref.getProfileImageURL();
+    if(TextUtils.isEmpty(photoURL)){
+      return;
+    }
+
+    ((TextView)mNavigationView.getHeaderView(0).findViewById(R.id.tvName)).setText(SharedPref.getDisplayName());
+    ((TextView)mNavigationView.getHeaderView(0).findViewById(R.id.tvEmail)).setText(SharedPref.getEmail());
+
+    Picasso.with(this)
+            .load(SharedPref.getProfileImageURL())
+            .placeholder(R.drawable.ic_avatar_man)
+            .transform(new CircleTransform())
+            .into(((ImageView) mNavigationView.getHeaderView(0).findViewById(R.id.imageView)));
   }
 
   private void setupViewPager(){
@@ -268,8 +291,8 @@ public class MainActivity extends FragmentActivity
 //
 //    mDrawerToggle.syncState();
 
-    NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-    navigationView.setNavigationItemSelectedListener(this);
+    mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+    mNavigationView.setNavigationItemSelectedListener(this);
   }
 
   private void setupFAB() {

@@ -9,17 +9,6 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-
-
-    <!--<android.support.v7.widget.Toolbar-->
-        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:background="@color/colorAccent"-->
-        <!--android:id="@+id/toolbar"-->
-        <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-        <!--app:title="Drawer With Swipe Tabs" />-->
-
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
