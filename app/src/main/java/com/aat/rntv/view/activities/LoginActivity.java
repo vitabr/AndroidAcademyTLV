@@ -3,6 +3,7 @@ package com.aat.rntv.view.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,7 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    getWindow().setStatusBarColor(Color.TRANSPARENT);
     FacebookSdk.sdkInitialize(BaseApplication.getInstance());
     mCallbackManager = CallbackManager.Factory.create();
     setContentView(R.layout.activity_login);

@@ -21,7 +21,6 @@ public class BaseApplication extends Application {
         singleton = this;
 
         Firebase.setAndroidContext(this);
-
     }
 
 

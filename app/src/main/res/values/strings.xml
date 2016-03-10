@@ -14,7 +14,7 @@
     <!-- Setup Screen -->
     <string name="email_hint">Enter valid email</string>
     <string name="name_hint">Enter your nick name</string>
-    <string name="title_are_you">Are you developer or designer?</string>
+    <string name="title_are_you">Hi %s\nAre you developer or designer?</string>
 
     <!-- Welcome Screen -->
     <string name="welcome_title_developer">Hello there Androider</string>

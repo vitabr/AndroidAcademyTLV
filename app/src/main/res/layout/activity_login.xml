@@ -7,61 +7,56 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <!-- Background -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg_splash"
-        android:scaleType="fitXY"/>
-
-    <Space
-        android:id="@+id/spcCenter"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_centerInParent="true"/>
+        android:src="@drawable/bg_signup"
+        android:layout_above="@+id/buttonsLayout"
+        android:scaleType="centerCrop"
+        android:transitionName="@string/trn_designer"
+        />
 
     <RelativeLayout
+        android:id="@+id/buttonsLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/spcCenter"
         android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"
         >
-
-        <LinearLayout
+        <Button
+            android:id="@+id/btnGoogle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:orientation="vertical" >
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:background="@drawable/btn_signupgoogle"/>
+            android:text="@string/login_with_google"
+            />
 
-            <Button
-                android:id="@+id/btnGoogle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:text="@string/login_with_google"
-                />
+        <Button
+            android:id="@+id/btnFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:layout_below="@id/btnGoogle"
+            android:background="@drawable/btn_signupface"
+            android:layout_weight="1"/>
+            android:text="@string/login_with_facebook"
+            />
 
-            <Button
-                android:id="@+id/btnFacebook"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:text="@string/login_with_facebook"
-                />
-
-            <Button
-                android:id="@+id/btnSkip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:background="@null"
-                android:textAlignment="center"
-                android:text="@string/skip"/>
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnSkip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:layout_below="@id/btnFacebook"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="@string/skip"/>
 
     </RelativeLayout>
 

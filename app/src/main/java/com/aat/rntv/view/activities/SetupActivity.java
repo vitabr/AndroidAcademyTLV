@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.champions.are.we.androidacademytlv.R;
 
@@ -23,8 +24,8 @@ public class SetupActivity extends Activity implements View.OnClickListener {
   }
 
   private ImageButton mAvatar;
-  private EditText mName;
-  private EditText mEmail;
+  private TextView mName;
+  private TextView mEmail;
   private ImageButton mDesigner;
   private ImageButton mDeveloper;
 
@@ -53,8 +54,8 @@ public class SetupActivity extends Activity implements View.OnClickListener {
     mAvatar = (ImageButton)findViewById(R.id.btnAvatar);
     mAvatar.setOnClickListener(this);
 
-    mName = (EditText)findViewById(R.id.editName);
-    mEmail = (EditText)findViewById(R.id.editEmail);
+    mName = (TextView)findViewById(R.id.tvName);
+    mEmail = (TextView)findViewById(R.id.tvEmail);
 
     mDesigner = (ImageButton)findViewById(R.id.btnDesigner);
     mDesigner.setOnClickListener(this);

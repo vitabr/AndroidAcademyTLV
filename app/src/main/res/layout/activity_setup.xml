@@ -12,23 +12,39 @@
     <View
         android:id="@+id/titleView"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:background="@android:color/holo_blue_bright"/>
 
-    <ImageButton
-        android:id="@+id/btnAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_avatar_man"
+    <Space
+        android:id="@+id/spacer_top"
+        android:layout_below="@id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/img_wraper"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:baselineAlignBottom="true"
-        android:layout_alignBottom="@id/titleView"/>
+        android:layout_alignBottom="@id/spacer_top"
+        card_view:cardCornerRadius="50dp"
+        card_view:cardBackgroundColor="#00ffffff">
+
+        <ImageButton
+            android:id="@+id/btnAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_avatar_man"/>
+    </android.support.v7.widget.CardView>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/btnAvatar"
-        android:layout_margin="20dp"
+        android:layout_below="@id/img_wraper"
+        android:layout_margin="15dp"
         >
 
         <LinearLayout
@@ -37,65 +53,90 @@
             android:layout_centerVertical="true"
             android:orientation="vertical" >
 
-            <EditText
-                android:id="@+id/editName"
+            <TextView
+                android:id="@+id/tvName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:hint="@string/name_hint"
                 />
 
-            <EditText
-                android:id="@+id/editEmail"
+            <TextView
+                android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="6dp"
                 android:layout_weight="1"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:hint="@string/email_hint"
                 />
 
             <Space
                 android:id="@id/spcCenter"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp" />
+                android:layout_height="10dp" />
 
-            <TextView
-                android:id="@+id/tvSelectionTitle"
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:textAlignment="center"
-                android:text="@string/title_are_you"
-                />
+                android:id="@+id/cardView"
+                android:elevation="10dp"
+                card_view:cardCornerRadius="15dp"
+                card_view:cardBackgroundColor="#0ddddddd">
+                card_view:cardElevation="10dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <ImageButton
-                    android:id="@+id/btnDeveloper"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_develper"
-                    android:transitionName="@string/trn_developer"
-                    />
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-                <ImageButton
-                    android:id="@+id/btnDesigner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_designer"
-                    android:transitionName="@string/trn_designer"
-                    />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvSelectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textAlignment="center"
+                        android:text="@string/title_are_you"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/btnDeveloper"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/btn_androidersetup"
+                            android:background="@android:color/transparent"
+                            android:transitionName="@string/trn_developer"
+                            />
+
+                        <ImageButton
+                            android:id="@+id/btnDesigner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/btn_designersetup"
+                            android:background="@android:color/transparent"
+                            android:transitionName="@string/trn_designer"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 
