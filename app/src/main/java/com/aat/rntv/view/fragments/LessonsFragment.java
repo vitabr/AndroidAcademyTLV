@@ -30,7 +30,6 @@ import io.realm.RealmResults;
  */
 public class LessonsFragment extends Fragment implements Constants {
 
-
     private CardView mTitle;
     private TextView mLessonTitle;
     private TextView mLessonDate;

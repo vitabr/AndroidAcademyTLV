@@ -27,6 +27,15 @@ public class SharedPref {
     mSharedPreferences.edit().remove("displayName").apply();
     mSharedPreferences.edit().remove("profileImageURL").apply();
     mSharedPreferences.edit().remove("provider").apply();
+    mSharedPreferences.edit().remove("profession").apply();
+  }
+
+  public static void setProfession(String profession) {
+    mSharedPreferences.edit().putString("profession", profession).apply();
+  }
+
+  public static String getProfession() {
+    return mSharedPreferences.getString("profession", "");
   }
 
   public static String getUserId() {

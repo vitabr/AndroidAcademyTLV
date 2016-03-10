@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.text.TextUtils;
 
 import com.aat.rntv.business.Utils;
 import com.champions.are.we.androidacademytlv.R;
@@ -17,7 +18,7 @@ import java.util.TimerTask;
  */
 public class SplashActivity extends Activity {
 
-  private boolean mShouldPrintKeyHash = true;
+  private boolean mShouldPrintKeyHash = false;
 
   private TimerTask mTimerTask = new TimerTask() {
     @Override
@@ -31,10 +32,6 @@ public class SplashActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    // remove title
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
-    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_splash);
 
     if (mShouldPrintKeyHash) {
