@@ -21,21 +21,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.aat.rntv.business.Utils;
 import com.aat.rntv.model.Constants;
-import com.aat.rntv.model.FirebaseLesson;
-import com.aat.rntv.model.RealmLesson;
+import com.aat.rntv.model.Lesson;
 import com.aat.rntv.model.User;
 import com.aat.rntv.view.fragments.FavoritesFragment;
-import com.aat.rntv.view.fragments.MainFragment;
+import com.aat.rntv.view.fragments.LessonsFragment;
 import com.aat.rntv.view.fragments.PickUpsFragment;
 import com.aat.rntv.view.fragments.RcvpFragment;
 import com.champions.are.we.androidacademytlv.R;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
-
-import java.util.ArrayList;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -46,65 +40,39 @@ public class MainActivity extends FragmentActivity
   private DrawerLayout mDrawerLayout;
   private ActionBarDrawerToggle mDrawerToggle;
   private ViewPager mViewPager;
-  private ArrayList<FirebaseLesson> mLessonsList;
 
   public static Intent getIntent(Context context) {
     Intent intent = new Intent(context, MainActivity.class);
     return intent;
   }
 
-  private Realm mRealm;
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    mRealm = Realm.getInstance(this);
+    Realm realm = Realm.getInstance(this);
 
-    printOutDb();
+    printOutDb(realm);
 
     setupWindowAnimations();
 
     setupUI();
 
-    loadData();
   }
 
-  private void loadData() {
-
-    mLessonsList = new ArrayList<>();
-
-    final Firebase firebase = new Firebase(FIREBASE_ADDRESS + FIREBASE_LESSONS);
-    firebase.addValueEventListener(new ValueEventListener() {
-      @Override
-      public void onDataChange(DataSnapshot snapshot) {
-        System.out.println("There are " + snapshot.getChildrenCount() + " lessons");
-        for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-          FirebaseLesson lesson = postSnapshot.getValue(FirebaseLesson.class);
-          mLessonsList.add(lesson);
-        }
-      }
-
-      @Override
-      public void onCancelled(FirebaseError firebaseError) {
-        System.out.println("The read failed: " + firebaseError.getMessage());
-      }
-    });
-  }
-
-  private void printOutDb(){
+  private void printOutDb(Realm realm) {
 
     Log.e("VITO", "Start print out:");
-    RealmResults<User> results = mRealm.where(User.class).findAll();
+    RealmResults<User> results = realm.where(User.class).findAll();
 
-    for(User c:results) {
-//      Log.e("VITO", c.getmFirstName());
+    for (User c : results) {
+//      Log.e("VITO", c.);
     }
 
-    RealmResults<RealmLesson> results1 = mRealm.where(RealmLesson.class).findAll();
+    RealmResults<Lesson> results1 = realm.where(Lesson.class).findAll();
 
-    for(RealmLesson c:results1) {
+    for(Lesson c:results1) {
       Log.e("VITO", c.getmTitle());
     }
     Log.e("VITO", "End print out.");
@@ -146,20 +114,22 @@ public class MainActivity extends FragmentActivity
   @Override
   public boolean onNavigationItemSelected(MenuItem item) {
     // Handle navigation view item clicks here.
-    int id = item.getItemId();
-
-    if (id == R.id.nav_camera) {
-      // Handle the camera action
-    } else if (id == R.id.nav_gallery) {
-
-    } else if (id == R.id.nav_slideshow) {
-
-    } else if (id == R.id.nav_manage) {
-
-    } else if (id == R.id.nav_share) {
-
-    } else if (id == R.id.nav_send) {
-
+    switch (item.getItemId()) {
+      case R.id.nav_camera:
+        break;
+      case R.id.nav_gallery:
+        break;
+      case R.id.nav_slideshow:
+        break;
+      case R.id.nav_manage:
+        break;
+      case R.id.nav_share:
+        break;
+      case R.id.nav_send:
+        break;
+      case R.id.nav_logout:
+        Utils.logout(MainActivity.this);
+        break;
     }
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -181,7 +151,7 @@ public class MainActivity extends FragmentActivity
       Fragment fragment = null;
       switch (i){
         case 0:
-          fragment = new MainFragment();
+          fragment = new LessonsFragment();
           break;
         case 1:
           fragment = new FavoritesFragment();

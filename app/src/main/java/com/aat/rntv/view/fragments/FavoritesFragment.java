@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.aat.rntv.controller.MainListAdapter;
-import com.aat.rntv.model.RealmLesson;
+import com.aat.rntv.model.Lesson;
 import com.champions.are.we.androidacademytlv.R;
 
 import io.realm.Realm;
@@ -53,7 +53,7 @@ public class FavoritesFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        RealmResults<RealmLesson> lessons = Realm.getInstance(getContext()).where(RealmLesson.class).findAll();
+        RealmResults<Lesson> lessons = Realm.getInstance(getContext()).where(Lesson.class).findAll();
         mAdapter = new MainListAdapter(lessons);
         mRecyclerView.setAdapter(mAdapter);
     }

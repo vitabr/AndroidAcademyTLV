@@ -26,6 +26,14 @@ import java.util.Arrays;
  */
 public class Backend implements Constants {
 
+  //Facebook Strings
+  private static final String EMAIL = "email";
+  private static final String USER_PHOTOS = "user_photos";
+
+  //Firebase Strings
+  private static final String DISPLAY_NAME = "displayName";
+  private static final String PROFILE_IMAGE_URL = "profileImageURL";
+
   //Checks if network is available
   private static boolean isNetworkAvailable() {
     ConnectivityManager connectivityManager
@@ -47,7 +55,7 @@ public class Backend implements Constants {
       return;
     }
 
-    LoginManager.getInstance().logInWithReadPermissions(activity, Arrays.asList("email", "user_photos"));
+    LoginManager.getInstance().logInWithReadPermissions(activity, Arrays.asList(EMAIL, USER_PHOTOS));
 
     LoginManager.getInstance().registerCallback(manager, new FacebookCallback<LoginResult>() {
       @Override
@@ -72,17 +80,16 @@ public class Backend implements Constants {
     Firebase ref = new Firebase(FIREBASE_ADDRESS);
 
     if (token != null) {
-      ref.authWithOAuthToken("facebook", token.getToken(), new Firebase.AuthResultHandler() {
+      ref.authWithOAuthToken(FACEBOOK_PROVIDER_NAME, token.getToken(), new Firebase.AuthResultHandler() {
         @Override
         public void onAuthenticated(AuthData authData) {
           // The Facebook user is now authenticated with our Firebase app
-          String userId = authData.getUid();
-          String email = (String) authData.getProviderData().get("email");
-          String displayName = (String) authData.getProviderData().get("displayName");
-          String profileImageURL = (String) authData.getProviderData().get("profileImageURL");
-          String provider = authData.getProvider();
 
-          SharedPref.setMyOwnUser(userId, email, displayName, profileImageURL, provider);
+          SharedPref.saveMyOwnUser(authData.getUid(),
+                  authData.getProviderData().get(EMAIL).toString(),
+                  authData.getProviderData().get(DISPLAY_NAME).toString(),
+                  authData.getProviderData().get(PROFILE_IMAGE_URL).toString(),
+                  authData.getProvider());
 
           callback.onSuccess("SUCCESS");
         }
