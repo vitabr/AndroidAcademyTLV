@@ -174,8 +174,6 @@ public class MainActivity extends FragmentActivity
     public CharSequence getPageTitle(int i) {
       switch (i) {
         case 0:
-          return null;//"Main";
-
         case 1:
           return null;//"Favorites";
 
