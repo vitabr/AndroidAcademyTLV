@@ -2,10 +2,12 @@ package com.aat.rntv.view.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.text.TextUtils;
+import android.widget.ImageView;
 
 import com.aat.rntv.business.SharedPref;
 import com.aat.rntv.business.Utils;
@@ -47,6 +49,8 @@ public class SplashActivity extends Activity {
     if (mShouldPrintKeyHash) {
       Utils.printKeyHashToLog(this);
     }
+
+    ((AnimationDrawable) ((ImageView)findViewById(R.id.ivBg)).getDrawable()).start();
 
     new Timer().schedule(mTimerTask, 3000);
   }
