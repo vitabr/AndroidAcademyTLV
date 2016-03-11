@@ -1,103 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
 
-        <ImageView
-            android:id="@+id/bg_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:scaleType="centerCrop"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/img_homepic"/>
-
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/tips"
-        android:layout_gravity="top"
+    <ImageView
+        android:id="@+id/bg_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/img_homepic"/>
+
+
+    <ScrollView
         android:layout_below="@id/bg_image"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        card_view:cardCornerRadius="5dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/tip1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/img_tips1"/>
-
-            <View
-                android:id="@+id/space1"
-                android:layout_below="@id/tip1"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                style="@style/LightGrayDivider"
-                />
-
-            <ImageView
-                android:id="@+id/tip2"
-                android:layout_below="@id/space1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/img_tips2"/>
-
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/tricks"
-        android:layout_gravity="top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tips"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        card_view:cardCornerRadius="5dp">
-
-        <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/trick1"
+            <android.support.v7.widget.CardView
+                android:id="@+id/tips"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/img_link1"/>
+                android:layout_margin="5dp"
+                card_view:cardCornerRadius="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/tip1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/img_tips1"/>
+
+                    <View
+                        android:id="@+id/space1"
+                        android:layout_below="@id/tip1"
+                        android:layout_margin="5dp"
+                        style="@style/LightGrayDivider"
+                        />
+
+                    <ImageView
+                        android:id="@+id/tip2"
+                        android:layout_below="@id/space1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/img_tips2"/>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
 
             <View
-                android:id="@+id/space2"
-                android:layout_below="@id/trick1"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                style="@style/LightGrayDivider"
-                />
+                android:layout_height="5dp"
+                android:layout_width="match_parent" />
 
-            <ImageView
-                android:id="@+id/trick2"
-                android:layout_below="@id/space2"
+            <android.support.v7.widget.CardView
+                android:id="@+id/tricks"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:src="@drawable/img_link2"/>
+                android:layout_margin="5dp"
+                android:layout_marginBottom="10dp"
+                card_view:cardCornerRadius="3dp">
 
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/trick1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/img_link1"/>
+
+                    <View
+                        android:id="@+id/space2"
+                        android:layout_below="@id/trick1"
+                        android:layout_margin="5dp"
+                        style="@style/LightGrayDivider"
+                        />
+
+                    <ImageView
+                        android:id="@+id/trick2"
+                        android:layout_below="@id/space2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/img_link2"/>
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <View
+                android:layout_height="5dp"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+    </ScrollView>
+
 
 </RelativeLayout>
