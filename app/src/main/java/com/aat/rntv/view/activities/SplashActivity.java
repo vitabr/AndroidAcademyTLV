@@ -2,6 +2,7 @@ package com.aat.rntv.view.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import com.aat.rntv.business.SharedPref;
 import com.aat.rntv.business.Utils;
@@ -23,14 +24,14 @@ public class SplashActivity extends Activity {
       String userId = SharedPref.getUserId();
       String profession = SharedPref.getProfession();
 
-      startActivity(AboutActivity.getIntent(SplashActivity.this));
-//      if (TextUtils.isEmpty(userId)) {
-//        navigateToLogin();
-//      } else if (TextUtils.isEmpty(profession)) {
-//        navigateToSetup();
-//      } else {
-//        navigateToMainscreen();
-//      }
+//      startActivity(AboutActivity.getIntent(SplashActivity.this));
+      if (TextUtils.isEmpty(userId)) {
+        navigateToLogin();
+      } else if (TextUtils.isEmpty(profession)) {
+        navigateToSetup();
+      } else {
+        navigateToMainscreen();
+      }
 
       finish();
     }
