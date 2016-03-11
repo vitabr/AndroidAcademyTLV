@@ -28,6 +28,7 @@ public class AboutUsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_about_us, container, false);
 
+        mImageResId = getArguments().getInt("image");
         mImage = (ImageView) view.findViewById(R.id.about_us_bg);
         mImage.setImageResource(mImageResId);
 

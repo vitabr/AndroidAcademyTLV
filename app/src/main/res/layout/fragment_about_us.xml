@@ -2,10 +2,12 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:background="@color/white"
              tools:context="com.aat.rntv.view.fragments.AboutUsFragment">
 
     <ImageView
         android:id="@+id/about_us_bg"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
