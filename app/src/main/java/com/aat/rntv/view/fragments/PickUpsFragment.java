@@ -39,9 +39,9 @@ public class PickUpsFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mTitle = (CardView) view.findViewById(R.id.card_view);
-        mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
-        mLessonDate = (TextView) view.findViewById(R.id.lesson_date);
+//        mTitle = (CardView) view.findViewById(R.id.card_view);
+//        mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
+//        mLessonDate = (TextView) view.findViewById(R.id.lesson_date);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
 
         // use this setting to improve performance if you know that changes

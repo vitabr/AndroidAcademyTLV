@@ -2,7 +2,6 @@ package com.aat.rntv.view.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,9 +38,9 @@ public class FavoritesFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mTitle =  view.findViewById(R.id.card_view);
-        mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
-        mLessonDate = (TextView) view.findViewById(R.id.lesson_date);
+//        mTitle =  view.findViewById(R.id.card_view);
+//        mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
+//        mLessonDate = (TextView) view.findViewById(R.id.lesson_date);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
 
         // use this setting to improve performance if you know that changes
