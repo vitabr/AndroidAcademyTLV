@@ -120,17 +120,17 @@ public class MainActivity extends FragmentActivity
   public boolean onNavigationItemSelected(MenuItem item) {
     // Handle navigation view item clicks here.
     switch (item.getItemId()) {
-      case R.id.nav_camera:
+      case R.id.nav_presentation:
         break;
-      case R.id.nav_gallery:
+      case R.id.nav_creators:
         break;
-      case R.id.nav_slideshow:
+      case R.id.nav_find:
         break;
-      case R.id.nav_manage:
+      case R.id.nav_hackathon:
         break;
-      case R.id.nav_share:
+      case R.id.nav_lectures:
         break;
-      case R.id.nav_send:
+      case R.id.nav_settings:
         break;
       case R.id.nav_logout:
         Utils.logout(MainActivity.this);
