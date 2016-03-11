@@ -1,10 +1,7 @@
 package com.aat.rntv.view.activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.text.TextUtils;
 
 import com.aat.rntv.business.SharedPref;
@@ -27,6 +24,7 @@ public class SplashActivity extends Activity {
       String userId = SharedPref.getUserId();
       String profession = SharedPref.getProfession();
 
+//      startActivity(RsvpActivity.getIntent(SplashActivity.this, "1", "Title test..", "29"));
       if (TextUtils.isEmpty(userId)) {
         navigateToLogin();
       } else if (TextUtils.isEmpty(profession)) {

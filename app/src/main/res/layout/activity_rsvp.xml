@@ -161,40 +161,39 @@
     <LinearLayout
         android:id="@+id/calendar_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:animateLayoutChanges="true"
         android:background="@color/white">
 
         <RelativeLayout
+            android:id="@+id/add_to_calendar_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/img_calendar"
+                android:layout_marginLeft="@dimen/rsvp_title_left_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="5dp"
+                android:src="@drawable/btn_checkmarkoff"/>
 
             <TextView
                 android:id="@+id/add_to_calendar"
-                android:layout_marginLeft="@dimen/rsvp_title_left_margin"
-                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:textColor="@color/darkGray"
+                android:layout_toRightOf="@+id/img_calendar"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="@string/add_to_my_calendar" />
 
-            <ImageView
-                android:id="@+id/btn_calendar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:src="@drawable/btn_back"/>
-
         </RelativeLayout>
-
-        <EditText
-            android:id="@+id/calendar_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/rsvp_title_left_margin"
-            android:inputType="textEmailAddress"
-            android:ems="10" />
 
     </LinearLayout>
 
@@ -254,11 +253,12 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/btn_edit"
+                        android:src="@drawable/ic_datersvp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"/>
 
                     <View style="@style/LightGrayDivider"
+                          android:layout_marginTop="3dp"
                         android:layout_below="@id/date_picker_text"/>
 
                 </RelativeLayout>
@@ -298,11 +298,12 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/btn_edit"
+                        android:src="@drawable/ic_alarmrsvp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"/>
 
                     <View style="@style/LightGrayDivider"
+                          android:layout_marginTop="3dp"
                         android:layout_below="@id/time_picker_text"/>
 
                 </RelativeLayout>

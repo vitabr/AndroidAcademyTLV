@@ -1,6 +1,9 @@
 package com.aat.rntv.business;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -8,6 +11,7 @@ import android.util.Base64;
 import android.util.Log;
 
 import com.aat.rntv.BaseApplication;
+import com.aat.rntv.business.receiver.OnAlarmReceiver;
 import com.aat.rntv.model.Constants;
 import com.aat.rntv.view.activities.LoginActivity;
 import com.facebook.FacebookSdk;
@@ -34,6 +38,22 @@ public class Utils implements Constants {
     SharedPref.userLogout();
 
     context.startActivity(LoginActivity.getIntent(context));
+  }
+
+  /** Create a new Alarm */
+  public static void createAlarm(final long timeInMillis) {
+    AlarmManager mgr = (AlarmManager) BaseApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
+    Intent i = new Intent(BaseApplication.getInstance(), OnAlarmReceiver.class);
+    PendingIntent pi = PendingIntent.getBroadcast(BaseApplication.getInstance(), 0 , i, 0);
+    mgr.set(AlarmManager.RTC_WAKEUP, timeInMillis, pi);
+  }
+
+  /** Cancel Alarm if there is any */
+  public static void cancelAlarm() {
+    AlarmManager mgr = (AlarmManager) BaseApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
+    Intent i = new Intent(BaseApplication.getInstance(), OnAlarmReceiver.class);
+    PendingIntent pi = PendingIntent.getBroadcast(BaseApplication.getInstance(), 0 , i, 0);
+    mgr.cancel(pi);
   }
 
   /**

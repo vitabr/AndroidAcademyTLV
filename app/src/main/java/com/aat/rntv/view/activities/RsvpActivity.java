@@ -3,18 +3,22 @@ package com.aat.rntv.view.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.aat.rntv.business.Utils;
 import com.champions.are.we.androidacademytlv.R;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 public class RsvpActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,11 +30,12 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
 
     private TextView mDatePickerTxt, mTimePickerTxt;
     private TextView mRsvpYes, mRsvpNo;
-    private EditText mCalendarEmail;
+    private ImageView mAddToCalendarImg;
 
     private boolean mDateSet = false;
     private boolean mTimeSet = false;
     private boolean mPlanToShow = false;
+    private boolean mAddCalendar = false;
 
     public static Intent getIntent(Context context, String lessonNumber, String title, String attCount) {
         Intent intent = new Intent(context, RsvpActivity.class);
@@ -61,8 +66,6 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
         ((TextView)findViewById(R.id.lesson_title)).setText(lessonTitle);
         ((TextView)findViewById(R.id.attendants_count)).setText(attendants);
 
-        mCalendarEmail = (EditText) findViewById(R.id.calendar_edit_text);
-
         mDatePickerTxt = (TextView) findViewById(R.id.date_picker_text);
         mDatePickerTxt.setText(R.string.set_date);
 
@@ -75,9 +78,12 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
         mRsvpYes.setBackgroundColor(getResources().getColor(R.color.lightGray));
         mRsvpNo.setBackgroundColor(getResources().getColor(R.color.red));
 
+        mAddToCalendarImg = (ImageView) findViewById(R.id.img_calendar);
+
         //set onclicks
         mRsvpYes.setOnClickListener(this);
         mRsvpNo.setOnClickListener(this);
+        findViewById(R.id.add_to_calendar_layout).setOnClickListener(this);
         findViewById(R.id.btn_back).setOnClickListener(this);
         findViewById(R.id.save).setOnClickListener(this);
         findViewById(R.id.cancel).setOnClickListener(this);
@@ -171,11 +177,24 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
                 rsvpNo();
                 break;
             case R.id.date_picker_layout:
-                showDatePicker(mDatePickerTxt, "Date set: ");
+                showDatePicker(mDatePickerTxt, "Date: ");
                 break;
             case R.id.time_picker_layout:
-                showTimePicker(mTimePickerTxt, "Time set: ");
+                showTimePicker(mTimePickerTxt, "Time: ");
                 break;
+            case R.id.add_to_calendar_layout:
+                handleCalendarClick();
+                break;
+        }
+    }
+
+    private void handleCalendarClick() {
+        if (mAddCalendar) {
+            mAddToCalendarImg.setImageResource(R.drawable.btn_checkmarkoff);
+            mAddCalendar = false;
+        } else {
+            mAddToCalendarImg.setImageResource(R.drawable.btn_checkmarkon);
+            mAddCalendar = true;
         }
     }
 
@@ -191,7 +210,33 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
         mRsvpNo.setBackgroundColor(getResources().getColor(R.color.red));
     }
 
+    private void createCalendarEvent() {
+        //TODO - Give this the right time.
+        Calendar cal = Calendar.getInstance();
+        Intent intent = new Intent(Intent.ACTION_EDIT);
+        intent.setData(CalendarContract.Events.CONTENT_URI);
+        intent.putExtra("beginTime", cal.getTimeInMillis());
+        intent.putExtra("endTime", cal.getTimeInMillis() + TimeUnit.HOURS.toMillis(2));
+        intent.putExtra("title", "A Test Event from android app");
+        startActivity(intent);
+    }
+
     private void saveRSVP() {
 
+        if (!mPlanToShow) {
+            Log.i("Not going to show %s", "Closing rsvp.");
+            finish();
+            return;
+        }
+
+        if (mTimeSet && mDateSet) {
+            Utils.createAlarm(mCalendar.getTimeInMillis());
+        }
+
+        if (mAddCalendar) {
+            createCalendarEvent();
+        }
+
+        finish();
     }
 }

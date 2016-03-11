@@ -52,12 +52,12 @@
     <string name="lesson_number_format">Lesson #</string>
     <string name="set_date">Set Date</string>
     <string name="set_time">Set Time</string>
+    <string name="attendants_txt">" Students have already signed up!"</string>
 
     <!--Error Handling-->
     <string name="no_internet">No Internet Connection</string>
     <string name="facebook_login_cancelled">Facebook Login Cancelled</string>
     <string name="facebook_login_failed">Facebook Login Failed</string>
-    <string name="attendants_txt">" Students have already signed up!"</string>
 
 
 </resources>
