@@ -35,6 +35,7 @@ import com.aat.rntv.model.Lesson;
 import com.aat.rntv.model.User;
 import com.aat.rntv.view.fragments.FavoritesFragment;
 import com.aat.rntv.view.fragments.LessonsFragment;
+import com.aat.rntv.view.fragments.MainFragment;
 import com.aat.rntv.view.fragments.PickUpsFragment;
 import com.aat.rntv.view.fragments.RcvpFragment;
 import com.aat.rntv.view.view_utils.CircleTransform;
@@ -166,13 +167,13 @@ public class MainActivity extends FragmentActivity
       Fragment fragment = null;
       switch (i){
         case 0:
-          fragment = new LessonsFragment();
+          fragment = new MainFragment();
           break;
         case 1:
           fragment = new FavoritesFragment();
           break;
         case 2:
-          fragment = new PickUpsFragment();
+          fragment = new LessonsFragment();
           break;
       }
       return fragment;
