@@ -23,7 +23,7 @@ import io.realm.RealmResults;
 public class FavoritesFragment extends Fragment {
 
 
-    private CardView mTitle;
+    private View mTitle;
     private TextView mLessonTitle;
     private TextView mLessonDate;
     private RecyclerView mRecyclerView;
@@ -39,7 +39,7 @@ public class FavoritesFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mTitle = (CardView) view.findViewById(R.id.card_view);
+        mTitle =  view.findViewById(R.id.card_view);
         mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
         mLessonDate = (TextView) view.findViewById(R.id.lesson_date);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);

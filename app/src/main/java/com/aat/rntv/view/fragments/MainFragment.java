@@ -30,7 +30,7 @@ import io.realm.RealmResults;
  */
 public class MainFragment extends Fragment implements Constants {
 
-    private CardView mTitle;
+    private View mTitle;
     private TextView mLessonTitle;
     private TextView mLessonDate;
     private RecyclerView mRecyclerView;
@@ -51,7 +51,7 @@ public class MainFragment extends Fragment implements Constants {
 
         Log.e("VITO", "MainFragment:onViewCreated");
 
-        mTitle = (CardView) view.findViewById(R.id.card_view);
+        mTitle = (View) view.findViewById(R.id.card_view);
         mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
         mLessonDate = (TextView) view.findViewById(R.id.lesson_date);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);

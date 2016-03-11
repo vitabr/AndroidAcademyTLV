@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_1"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_2"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_3"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_4"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_5"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_6"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_7"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_8"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_9"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_10"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_11"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_12"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_13"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_14"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_15"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_16"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_17"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_18"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_19"/>
+
+    <item
+        android:duration="75"
+        android:drawable="@drawable/bg_splash_20"/>
+
+</animation-list>

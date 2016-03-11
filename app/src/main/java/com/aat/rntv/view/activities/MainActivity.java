@@ -170,9 +170,6 @@ public class MainActivity extends FragmentActivity
           fragment = new MainFragment();
           break;
         case 1:
-          fragment = new FavoritesFragment();
-          break;
-        case 2:
           fragment = new LessonsFragment();
           break;
       }
@@ -181,7 +178,7 @@ public class MainActivity extends FragmentActivity
 
     @Override
     public int getCount() {
-      return 3;
+      return 2;
     }
 
     @Override
@@ -193,15 +190,11 @@ public class MainActivity extends FragmentActivity
         case 1:
           return null;//"Favorites";
 
-        case 2:
-          return null;//"PickUps";
-
         default:
           return "You fucked Up!";
       }
     }
   }
-
 
   /***************************************************/
   /*** UI setup functions ****************************/
@@ -261,10 +254,7 @@ public class MainActivity extends FragmentActivity
     tabLayout.setTabsFromPagerAdapter(pagerAdapter);
     tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
     tabLayout.getTabAt(0).setIcon(R.drawable.ic_homenavbar);
-    tabLayout.getTabAt(1).setIcon(R.drawable.ic_favoritsnavbar);
-    tabLayout.getTabAt(2).setIcon(R.drawable.ic_lecturesnavbar);
-//
-//    ((ImageView)findViewById(R.id.btn_drawer)).s;
+    tabLayout.getTabAt(1).setIcon(R.drawable.ic_lecturesnavbar);
 
     mViewPager = (ViewPager) findViewById(R.id.pager);
     mViewPager.setAdapter(pagerAdapter);
