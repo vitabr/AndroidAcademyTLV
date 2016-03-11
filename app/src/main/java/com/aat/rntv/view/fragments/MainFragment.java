@@ -18,6 +18,7 @@ import com.aat.rntv.controller.MainListAdapter;
 import com.aat.rntv.model.Constants;
 import com.aat.rntv.model.FirebaseLesson;
 import com.aat.rntv.model.Lesson;
+import com.aat.rntv.view.activities.RsvpActivity;
 import com.aat.rntv.view.activities.Tip1Activity;
 import com.aat.rntv.view.activities.Tip2Activity;
 import com.champions.are.we.androidacademytlv.R;
@@ -81,6 +82,7 @@ public class MainFragment extends Fragment implements Constants {
             }
         });
     }
+
 
 //    private void loadData() {
 //

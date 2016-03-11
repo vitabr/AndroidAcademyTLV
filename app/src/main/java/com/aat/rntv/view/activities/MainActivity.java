@@ -174,8 +174,6 @@ public class MainActivity extends FragmentActivity
     public CharSequence getPageTitle(int i) {
       switch (i) {
         case 0:
-          return null;//"Main";
-
         case 1:
           return null;//"Favorites";
 
@@ -183,6 +181,11 @@ public class MainActivity extends FragmentActivity
           return "You fucked Up!";
       }
     }
+  }
+
+  public void onClick(View v){
+    if(!TextUtils.isEmpty(SharedPref.getUserId()))
+      startActivity(RsvpActivity.getIntent(this, "1","Intro, Setup, New Project...", "1" ));
   }
 
   /***************************************************/
