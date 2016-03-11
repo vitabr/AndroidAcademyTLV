@@ -70,7 +70,6 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
 
       Picasso.with(BaseApplication.getInstance())
             .load(mDataset.get(position).getmBg())
-            .placeholder(R.drawable.ic_avatar_man)
             .into(holder.mBackground);
       holder.mTitle.setText(mDataset.get(position).getmTitle());
       holder.mDescription.setText(mDataset.get(position).getmDescription());

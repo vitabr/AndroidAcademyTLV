@@ -78,6 +78,10 @@
             android:name="com.aat.rntv.view.activities.AboutActivity"
             android:label="@string/title_activity_about_us"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.aat.rntv.view.activities.LecturersActivity"
+            android:label="@string/title_activity_about_us"
+            android:screenOrientation="portrait" />
 
         <!-- ALARM RECEIVER -->
         <receiver android:name="com.aat.rntv.business.receiver.OnAlarmReceiver" />
