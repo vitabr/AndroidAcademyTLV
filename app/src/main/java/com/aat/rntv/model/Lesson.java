@@ -7,7 +7,7 @@ import io.realm.RealmObject;
 /**
  * Created by Refael Ozeri on 3/10/16.
  */
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties({"mAttendants"})
 public class Lesson extends RealmObject {
 
     private String mTitle;
