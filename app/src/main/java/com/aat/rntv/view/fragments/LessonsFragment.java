@@ -42,7 +42,7 @@ public class LessonsFragment extends Fragment implements Constants {
                              Bundle savedInstanceState) {
 
         Log.e("VITO", "MainFragment:onCreateView");
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return inflater.inflate(R.layout.fragment_lessons, container, false);
     }
 
     @Override
