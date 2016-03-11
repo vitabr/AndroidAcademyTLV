@@ -28,7 +28,7 @@ import io.realm.RealmResults;
 /**
  * Created by Vito on 3/5/16.
  */
-public class LessonsFragment extends Fragment implements Constants {
+public class MainFragment extends Fragment implements Constants {
 
     private CardView mTitle;
     private TextView mLessonTitle;
