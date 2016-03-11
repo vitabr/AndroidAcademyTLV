@@ -1,14 +1,20 @@
 package com.aat.rntv.view.activities;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aat.rntv.business.SharedPref;
@@ -238,16 +244,45 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
             Utils.createAlarm(mCalendar.getTimeInMillis());
         }
 
-        if (mAddCalendar) {
-            createCalendarEvent();
-        }
-
         Firebase firebase = new Firebase("https://flickering-torch-6484.firebaseio.com/Course_4/Lessons/"+mLessonNumber);
 
         Firebase attendanceRef = firebase.child("mAttendants").child(SharedPref.getUserId());
-        FirebaseAttendant attendant = new FirebaseAttendant("blat1", "blat2");//(SharedPref.getProfileImageURL(), SharedPref.getDisplayName());
+        FirebaseAttendant attendant = new FirebaseAttendant(SharedPref.getProfileImageURL(), SharedPref.getDisplayName());
         attendanceRef.setValue(attendant);
 
-        finish();
+        createAceVenturaDialog();
+    }
+
+    public void createAceVenturaDialog() {
+
+        //create dialog
+        final Dialog dialog = new Dialog(RsvpActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().setLayout(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        dialog.setContentView(R.layout.ace_ventura_dialog);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+
+        //set components
+        TextView okBtn = (TextView) dialog.findViewById(R.id.ace_ventura_ok_txt);
+
+        okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (mAddCalendar) {
+                    createCalendarEvent();
+                }
+
+                dialog.dismiss();
+                RsvpActivity.this.finish();
+            }
+        });
+
+        WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
+        lp.dimAmount = 0.85f;
+
+        dialog.show();
     }
 }
