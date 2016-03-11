@@ -1,8 +1,11 @@
 package com.aat.rntv.model;
 
+import com.shaded.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Created by Refael Ozeri on 3/10/16.
  */
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class FirebaseLesson {
 
     private String mTitle;
