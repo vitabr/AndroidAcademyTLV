@@ -30,7 +30,7 @@
                     android:id="@+id/btn_drawer"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="35" >
+                    android:layout_weight="50" >
 
                     <ImageButton
                         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
                     android:id="@+id/tab_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="65"
+                    android:layout_weight="50"
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/btn_drawer"
                     android:background="@android:color/holo_blue_dark"
