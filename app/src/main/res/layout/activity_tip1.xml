@@ -27,6 +27,7 @@
             android:layout_toRightOf="@+id/imageView"
             android:text="Tips"
             android:textStyle="bold"
+            android:textColor="@android:color/white"
             android:textSize="24sp"/>
 
     </RelativeLayout>

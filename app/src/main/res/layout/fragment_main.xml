@@ -5,8 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
-
-
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
     <ImageView
         android:id="@+id/bg_image"
         android:layout_width="match_parent"
@@ -32,10 +37,13 @@
                 android:id="@+id/tips"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                card_view:cardUseCompatPadding="true"
                 android:layout_margin="5dp"
                 card_view:cardCornerRadius="5dp">
 
                 <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -49,7 +57,7 @@
                     <View
                         android:id="@+id/space1"
                         android:layout_below="@id/tip1"
-                        android:layout_margin="5dp"
+                        android:layout_margin="10dp"
                         style="@style/LightGrayDivider"
                         />
 
@@ -73,10 +81,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                card_view:cardUseCompatPadding="true"
                 android:layout_marginBottom="10dp"
-                card_view:cardCornerRadius="3dp">
+                card_view:cardCornerRadius="5dp">
 
                 <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -90,7 +101,7 @@
                     <View
                         android:id="@+id/space2"
                         android:layout_below="@id/trick1"
-                        android:layout_margin="5dp"
+                        android:layout_margin="10dp"
                         style="@style/LightGrayDivider"
                         />
 
@@ -110,6 +121,20 @@
                 android:layout_width="match_parent" />
         </LinearLayout>
     </ScrollView>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        card_view:layout_anchor="@id/bg_image"
+        card_view:layout_anchorGravity="bottom|right|end"
+        android:src="@drawable/ic_fab"
+        android:layout_margin="@dimen/fab_margin"
+        android:onClick="onClick"
+        android:clickable="true"/>
+
+</android.support.design.widget.CoordinatorLayout>
 
 
 </RelativeLayout>

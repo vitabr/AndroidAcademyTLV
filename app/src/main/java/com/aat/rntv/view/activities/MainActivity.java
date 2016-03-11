@@ -185,6 +185,11 @@ public class MainActivity extends FragmentActivity
     }
   }
 
+  public void onClick(View v){
+    if(!TextUtils.isEmpty(SharedPref.getUserId()))
+      startActivity(RsvpActivity.getIntent(this, "1","Intro, Setup, New Project...", "1" ));
+  }
+
   /***************************************************/
   /*** UI setup functions ****************************/
   /***************************************************/
