@@ -8,9 +8,11 @@
     tools:openDrawer="start">
 
     <ImageView
+        android:id="@+id/ivBg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg_splash"
+        android:src="@drawable/animation_list"
+        android:background="@drawable/bg_splash"
         android:scaleType="centerCrop"/>
 
 </RelativeLayout>
