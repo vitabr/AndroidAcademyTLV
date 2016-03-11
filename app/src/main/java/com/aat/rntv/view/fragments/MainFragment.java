@@ -86,7 +86,7 @@ public class MainFragment extends Fragment implements Constants {
                             Lesson lesson1 = realm.createObject(Lesson.class);
                             lesson1.setmTitle(lesson.getmTitle());
                             lesson1.setmDescription(lesson.getmDescription());
-                            lesson1.setmLecturerUid(lesson.getmLecturerUid());
+                            lesson1.setmLecturerName(lesson.getmLecturerName());
                             lesson1.setmStartDate(lesson.getmStartDate());
                         }
                     });

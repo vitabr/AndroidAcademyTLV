@@ -7,7 +7,7 @@ public class FirebaseLesson {
 
     private String mTitle;
     private String mDescription;
-    private String mLecturerUid;
+    private String mLecturerName;
     private String mStartDate;
 
     public FirebaseLesson() {
@@ -22,8 +22,8 @@ public class FirebaseLesson {
         return mDescription;
     }
 
-    public String getmLecturerUid() {
-        return mLecturerUid;
+    public String getmLecturerName() {
+        return mLecturerName;
     }
 
     public String getmStartDate() {

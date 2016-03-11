@@ -29,6 +29,7 @@ public class SplashActivity extends Activity {
       String userId = SharedPref.getUserId();
       String profession = SharedPref.getProfession();
 
+//      startActivity(RsvpActivity.getIntent(SplashActivity.this, "1", "Title test..", "29"));
       if (TextUtils.isEmpty(userId)) {
         navigateToLogin();
       } else if (TextUtils.isEmpty(profession)) {

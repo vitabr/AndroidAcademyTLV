@@ -9,7 +9,7 @@ public class Lesson extends RealmObject {
 
     private String mTitle;
     private String mDescription;
-    private String mLecturerUid;
+    private String mLecturerName;
     private String mStartDate;
 
     public Lesson() {
@@ -24,8 +24,8 @@ public class Lesson extends RealmObject {
         this.mDescription = mDescription;
     }
 
-    public void setmLecturerUid(String mLecturerUid) {
-        this.mLecturerUid = mLecturerUid;
+    public void setmLecturerName(String mLecturerName) {
+        this.mLecturerName = mLecturerName;
     }
 
     public void setmStartDate(String mStartDate) {
@@ -40,8 +40,8 @@ public class Lesson extends RealmObject {
         return mDescription;
     }
 
-    public String getmLecturerUid() {
-        return mLecturerUid;
+    public String getmLecturerName() {
+        return mLecturerName;
     }
 
     public String getmStartDate() {
