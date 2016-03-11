@@ -7,9 +7,9 @@
             android:icon="@drawable/ic_sbarmenpresentation"
             android:title="Presentation"/>
         <item
-            android:id="@+id/nav_lectures"
+            android:id="@+id/nav_lecturers"
             android:icon="@drawable/ic_sbarmenlectures"
-            android:title="The Lectures"/>
+            android:title="The Lecturers"/>
         <item
             android:id="@+id/nav_hackathon"
             android:icon="@drawable/ic_sbarmenhackathon"
