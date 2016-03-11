@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="mdtp_accent_color">@color/mainBlue</color>
+    <color name="mdtp_accent_color_dark">@color/darkBlue</color>
+
+    <color name="mainBlue">#28BCD8</color>
+    <color name="darkBlue">#0B9AB5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="darkGray">#3D3D3D</color>
+    <color name="lightGray">#E6E6E6</color>
+    <color name="red">#C43110</color>
+    <color name="green">#10C440</color>
 </resources>

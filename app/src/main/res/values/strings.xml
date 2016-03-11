@@ -38,8 +38,26 @@
     <string name="trn_developer">transaction_setup_developer</string>
     <string name="trn_designer">transaction_setup_designer</string>
 
+    <!--RSVP Screen-->
+    <string name="rsvp_title">RSVP</string>
+    <string name="attendants">Attendants</string>
+    <string name="plan_to_show_question">Do you plan to show?</string>
+    <string name="title_activity_rsvp">RsvpActivity</string>
+    <string name="add_to_my_calendar">Add to my Calendar</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
+    <string name="remind_me_in">Remind me in:</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="lesson_number_format">Lesson #</string>
+    <string name="set_date">Set Date</string>
+    <string name="set_time">Set Time</string>
+
     <!--Error Handling-->
     <string name="no_internet">No Internet Connection</string>
     <string name="facebook_login_cancelled">Facebook Login Cancelled</string>
     <string name="facebook_login_failed">Facebook Login Failed</string>
+    <string name="attendants_txt">" Students have already signed up!"</string>
+
+
 </resources>

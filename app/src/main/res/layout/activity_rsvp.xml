@@ -1,0 +1,350 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.aat.rntv.view.activities.RsvpActivity">
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rsvp_toolbar_height"
+        android:orientation="vertical"
+        android:background="@color/mainBlue">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="5dp"
+                android:src="@drawable/btn_back"/>
+
+            <TextView
+                android:id="@+id/rsvp_title"
+                android:layout_toRightOf="@+id/btn_back"
+                android:layout_centerVertical="true"
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/rsvp_title" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/lesson_number"
+            android:layout_marginLeft="@dimen/rsvp_title_left_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="Lesson #1" />
+
+        <TextView
+            android:id="@+id/lesson_title"
+            android:layout_marginLeft="@dimen/rsvp_title_left_margin"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="This is the lesson title" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/attendants_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/attendants"
+            android:layout_marginLeft="@dimen/rsvp_title_left_margin"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkGray"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/attendants" />
+
+        <TextView
+            android:id="@+id/attendants_count"
+            android:layout_marginLeft="@dimen/rsvp_title_left_margin"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/darkGray"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="@string/attendants" />
+
+    </LinearLayout>
+
+    <View style="@style/LightGrayDivider"/>
+
+    <LinearLayout
+        android:id="@+id/pts_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/pts_text"
+            android:layout_marginLeft="@dimen/rsvp_title_left_margin"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkGray"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/plan_to_show_question" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pts_yes"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@color/green"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/yes" />
+
+            <TextView
+                android:id="@+id/pts_no"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@color/red"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/no" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View style="@style/LightGrayDivider"/>
+
+    <LinearLayout
+        android:id="@+id/calendar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/add_to_calendar"
+                android:layout_marginLeft="@dimen/rsvp_title_left_margin"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darkGray"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/add_to_my_calendar" />
+
+            <ImageView
+                android:id="@+id/btn_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:src="@drawable/btn_back"/>
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/calendar_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/rsvp_title_left_margin"
+            android:inputType="textEmailAddress"
+            android:ems="10" />
+
+    </LinearLayout>
+
+    <View style="@style/LightGrayDivider"/>
+
+    <LinearLayout
+        android:id="@+id/remind_me_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/remind_me_text"
+            android:layout_marginLeft="@dimen/rsvp_title_left_margin"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkGray"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/remind_me_in" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp">
+
+            <!-- DATE PICKER LAYOUT -->
+            <FrameLayout
+                android:id="@+id/date_picker_layout"
+                android:layout_width="0dp"
+                android:layout_weight="0.45"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:padding="3dp">
+
+                    <TextView
+                        android:id="@+id/date_picker_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        tools:text="10/3/2016"
+                        android:textColor="@color/lightGray"
+                        android:textSize="14sp"
+                        android:paddingLeft="5dp"
+                        android:typeface="sans"
+                        android:layout_centerVertical="true"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/btn_edit"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                    <View style="@style/LightGrayDivider"
+                        android:layout_below="@id/date_picker_text"/>
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="wrap_content" />
+
+            <!-- TIME PICKER LAYOUT -->
+            <FrameLayout
+                android:id="@+id/time_picker_layout"
+                android:layout_width="0dp"
+                android:layout_weight="0.45"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:padding="3dp">
+
+                    <TextView
+                        android:id="@+id/time_picker_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        tools:text="09:00"
+                        android:textColor="@color/lightGray"
+                        android:textSize="14sp"
+                        android:paddingLeft="5dp"
+                        android:typeface="sans"
+                        android:layout_centerVertical="true"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/btn_edit"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"/>
+
+                    <View style="@style/LightGrayDivider"
+                        android:layout_below="@id/time_picker_text"/>
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:textColor="@color/mainBlue"
+                    android:textSize="18sp"
+                    android:layout_marginRight="10dp"
+                    android:padding="15dp"
+                    android:typeface="sans"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:id="@+id/cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cancel"
+                    android:textColor="@color/darkGray"
+                    android:textSize="18sp"
+                    android:layout_marginRight="10dp"
+                    android:padding="15dp"
+                    android:typeface="sans"
+                    android:layout_toLeftOf="@+id/save"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
