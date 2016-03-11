@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -21,29 +27,11 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/img_wraper"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:baselineAlignBottom="true"
-        android:layout_alignBottom="@id/spacer_top"
-        card_view:cardCornerRadius="50dp"
-        card_view:cardBackgroundColor="#00ffffff">
-
-        <ImageButton
-            android:id="@+id/btnAvatar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_avatar_man"/>
-    </android.support.v7.widget.CardView>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/img_wraper"
+        android:layout_below="@id/spacer_top"
         android:layout_margin="15dp"
         >
 
@@ -84,11 +72,10 @@
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:id="@+id/cardView"
-                android:elevation="10dp"
                 card_view:cardCornerRadius="15dp"
                 card_view:cardBackgroundColor="#0ddddddd">
-                card_view:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -143,3 +130,26 @@
     </RelativeLayout>
 
 </RelativeLayout>
+
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:id="@+id/img_wraper"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--card_view:cardCornerRadius="10dp"-->
+        <!--card_view:cardBackgroundColor="#00ffffff"-->
+        <!--card_view:layout_anchor="@id/titleView"-->
+        <!--card_view:layout_anchorGravity="bottom|center"-->
+        <!-->-->
+
+        <ImageButton
+            android:id="@+id/btnAvatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_avatar_man"
+            card_view:layout_anchor="@id/titleView"
+            card_view:layout_anchorGravity="bottom|center"/>
+    <!--</android.support.v7.widget.CardView>-->
+
+</android.support.design.widget.CoordinatorLayout>

@@ -28,7 +28,7 @@ import io.realm.RealmResults;
 /**
  * Created by Vito on 3/5/16.
  */
-public class LessonsFragment extends Fragment implements Constants {
+public class MainFragment extends Fragment implements Constants {
 
     private CardView mTitle;
     private TextView mLessonTitle;
@@ -42,7 +42,7 @@ public class LessonsFragment extends Fragment implements Constants {
                              Bundle savedInstanceState) {
 
         Log.e("VITO", "MainFragment:onCreateView");
-        return inflater.inflate(R.layout.fragment_lessons, container, false);
+        return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
     @Override

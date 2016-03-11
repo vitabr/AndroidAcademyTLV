@@ -2,6 +2,7 @@ package com.aat.rntv.view.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -15,12 +16,19 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.text.TextUtils;
 import android.transition.Fade;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.aat.rntv.business.SharedPref;
 import com.aat.rntv.business.Utils;
 import com.aat.rntv.model.Constants;
 import com.aat.rntv.model.Lesson;
@@ -29,7 +37,9 @@ import com.aat.rntv.view.fragments.FavoritesFragment;
 import com.aat.rntv.view.fragments.LessonsFragment;
 import com.aat.rntv.view.fragments.PickUpsFragment;
 import com.aat.rntv.view.fragments.RcvpFragment;
+import com.aat.rntv.view.view_utils.CircleTransform;
 import com.champions.are.we.androidacademytlv.R;
+import com.squareup.picasso.Picasso;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -40,6 +50,7 @@ public class MainActivity extends FragmentActivity
   private DrawerLayout mDrawerLayout;
   private ActionBarDrawerToggle mDrawerToggle;
   private ViewPager mViewPager;
+  private NavigationView mNavigationView;
 
   public static Intent getIntent(Context context) {
     Intent intent = new Intent(context, MainActivity.class);
@@ -49,6 +60,10 @@ public class MainActivity extends FragmentActivity
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    // remove title
+    requestWindowFeature(Window.FEATURE_NO_TITLE);
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_main);
 
     Realm realm = Realm.getInstance(this);
@@ -159,32 +174,26 @@ public class MainActivity extends FragmentActivity
         case 2:
           fragment = new PickUpsFragment();
           break;
-        case 3:
-          fragment = new RcvpFragment();
-          break;
       }
       return fragment;
     }
 
     @Override
     public int getCount() {
-      return 4;
+      return 3;
     }
 
     @Override
     public CharSequence getPageTitle(int i) {
       switch (i) {
         case 0:
-          return "Main";
+          return null;//"Main";
 
         case 1:
-          return "Favorites";
+          return null;//"Favorites";
 
         case 2:
-          return "PickUps";
-
-        case 3:
-          return "RCVP";
+          return null;//"PickUps";
 
         default:
           return "You fucked Up!";
@@ -212,15 +221,49 @@ public class MainActivity extends FragmentActivity
   private void setupUI(){
     mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
     setupNavigationView();
+    setupTabs();
     setupViewPager();
+    fillUserInfo();
     setupFAB();
   }
 
+  private void setupTabs() {
+  }
+
+  private void fillUserInfo(){
+    String photoURL = SharedPref.getProfileImageURL();
+    if(TextUtils.isEmpty(photoURL)){
+      return;
+    }
+
+    ((TextView)mNavigationView.getHeaderView(0).findViewById(R.id.tvName)).setText(SharedPref.getDisplayName());
+    ((TextView)mNavigationView.getHeaderView(0).findViewById(R.id.tvEmail)).setText(SharedPref.getEmail());
+
+    Picasso.with(this)
+            .load(SharedPref.getProfileImageURL())
+            .placeholder(R.drawable.ic_avatar_man)
+            .transform(new CircleTransform())
+            .into(((ImageView) mNavigationView.getHeaderView(0).findViewById(R.id.imageView)));
+  }
+
   private void setupViewPager(){
+    View btnDrawer = findViewById(R.id.btn_drawer);
+    btnDrawer.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        mDrawerLayout.openDrawer(GravityCompat.START);
+      }
+    });
+
     TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
     final ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
     tabLayout.setTabsFromPagerAdapter(pagerAdapter);
     tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+    tabLayout.getTabAt(0).setIcon(R.drawable.ic_homenavbar);
+    tabLayout.getTabAt(1).setIcon(R.drawable.ic_favoritsnavbar);
+    tabLayout.getTabAt(2).setIcon(R.drawable.ic_lecturesnavbar);
+//
+//    ((ImageView)findViewById(R.id.btn_drawer)).s;
 
     mViewPager = (ViewPager) findViewById(R.id.pager);
     mViewPager.setAdapter(pagerAdapter);
@@ -262,8 +305,8 @@ public class MainActivity extends FragmentActivity
 //
 //    mDrawerToggle.syncState();
 
-    NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-    navigationView.setNavigationItemSelectedListener(this);
+    mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+    mNavigationView.setNavigationItemSelectedListener(this);
   }
 
   private void setupFAB() {

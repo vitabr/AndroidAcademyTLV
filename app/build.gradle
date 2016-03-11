@@ -31,5 +31,6 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'io.realm:realm-android:0.87.4'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.squareup.picasso:picasso:2.3.3'
     compile 'com.wdullaer:materialdatetimepicker:1.4.2'
 }

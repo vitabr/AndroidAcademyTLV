@@ -6,12 +6,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.aat.rntv.business.SharedPref;
+import com.aat.rntv.view.view_utils.CircleTransform;
 import com.champions.are.we.androidacademytlv.R;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by vito on 2/18/2016.
@@ -26,6 +32,7 @@ public class SetupActivity extends Activity implements View.OnClickListener {
   private ImageButton mAvatar;
   private TextView mName;
   private TextView mEmail;
+  private TextView mWelcome;
   private ImageButton mDesigner;
   private ImageButton mDeveloper;
 
@@ -37,9 +44,14 @@ public class SetupActivity extends Activity implements View.OnClickListener {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    // remove title
+    requestWindowFeature(Window.FEATURE_NO_TITLE);
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_setup);
 
     prepareView();
+    fillUserInfo();
   }
 
 
@@ -56,12 +68,30 @@ public class SetupActivity extends Activity implements View.OnClickListener {
 
     mName = (TextView)findViewById(R.id.tvName);
     mEmail = (TextView)findViewById(R.id.tvEmail);
+    mWelcome = (TextView)findViewById(R.id.tvSelectionTitle);
 
     mDesigner = (ImageButton)findViewById(R.id.btnDesigner);
     mDesigner.setOnClickListener(this);
 
     mDeveloper = (ImageButton)findViewById(R.id.btnDeveloper);
     mDeveloper.setOnClickListener(this);
+  }
+
+  private void fillUserInfo(){
+    String photoURL = SharedPref.getProfileImageURL();
+    if(TextUtils.isEmpty(photoURL)){
+      return;
+    }
+
+    mName.setText(SharedPref.getDisplayName());
+    mEmail.setText(SharedPref.getEmail());
+    mWelcome.setText(String.format(getString(R.string.title_are_you), SharedPref.getDisplayName()));
+
+    Picasso.with(this)
+            .load(SharedPref.getProfileImageURL())
+            .placeholder(R.drawable.ic_avatar_man)
+            .transform(new CircleTransform())
+            .into(mAvatar);
   }
 
   /**
