@@ -33,7 +33,7 @@ public class MainFragment extends Fragment implements Constants {
     private View mTitle;
     private TextView mLessonTitle;
     private TextView mLessonDate;
-    private RecyclerView mRecyclerView;
+    //private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RealmResults<Lesson> mRealmLessons;
 
@@ -54,12 +54,12 @@ public class MainFragment extends Fragment implements Constants {
         mTitle = (View) view.findViewById(R.id.card_view);
         mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
         mLessonDate = (TextView) view.findViewById(R.id.lesson_date);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
+        //mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
 
         // use a linear layout manager
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        loadData();
+        //loadData();
     }
 
     private void loadData() {
@@ -95,7 +95,7 @@ public class MainFragment extends Fragment implements Constants {
                 // specify an adapter (see also next example)
                 mRealmLessons = Realm.getInstance(getContext()).where(Lesson.class).findAll();
                 mAdapter = new MainListAdapter(mRealmLessons);
-                mRecyclerView.setAdapter(mAdapter);
+                //mRecyclerView.setAdapter(mAdapter);
 
                 firebase.removeEventListener(this);
             }
