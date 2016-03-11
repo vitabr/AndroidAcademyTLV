@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
@@ -254,6 +255,9 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void createAceVenturaDialog() {
+
+        MediaPlayer mPlayer = MediaPlayer.create(RsvpActivity.this, R.raw.ace);
+        mPlayer.start();
 
         //create dialog
         final Dialog dialog = new Dialog(RsvpActivity.this);

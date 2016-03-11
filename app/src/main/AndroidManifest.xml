@@ -69,10 +69,6 @@
         <!-- ALARM RECEIVER -->
         <receiver android:name="com.aat.rntv.business.receiver.OnAlarmReceiver" />
 
-        <activity
-            android:name="com.aat.rntv.view.activities.AboutUsActivity"
-            android:label="@string/title_activity_about_us" >
-        </activity>
     </application>
 
 </manifest>
