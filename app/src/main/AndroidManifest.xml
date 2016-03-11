@@ -62,17 +62,18 @@
         <activity
             android:name="com.aat.rntv.view.activities.Tip1Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/ToolBarTheme" />
         <activity
             android:name="com.aat.rntv.view.activities.Tip2Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/ToolBarTheme" />
+
         <activity
             android:name="com.aat.rntv.view.activities.RsvpActivity"
             android:label="@string/title_activity_rsvp"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"></activity>
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"/>
+
         <activity
             android:name="com.aat.rntv.view.activities.AboutActivity"
             android:label="@string/title_activity_about_us"
