@@ -123,12 +123,14 @@ public class MainActivity extends FragmentActivity
       case R.id.nav_presentation:
         break;
       case R.id.nav_creators:
+        startActivity(AboutActivity.getIntent(MainActivity.this));
         break;
       case R.id.nav_find:
         break;
       case R.id.nav_hackathon:
         break;
-      case R.id.nav_lectures:
+      case R.id.nav_lecturers:
+        startActivity(LecturersActivity.getIntent(MainActivity.this));
         break;
       case R.id.nav_settings:
         break;
@@ -156,10 +158,10 @@ public class MainActivity extends FragmentActivity
       Fragment fragment = null;
       switch (i){
         case 0:
-          fragment = new MainFragment();
+          fragment = new LessonsFragment();
           break;
         case 1:
-          fragment = new LessonsFragment();
+          fragment = new MainFragment();
           break;
       }
       return fragment;
@@ -245,8 +247,8 @@ public class MainActivity extends FragmentActivity
     final ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
     tabLayout.setTabsFromPagerAdapter(pagerAdapter);
     tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-    tabLayout.getTabAt(0).setIcon(R.drawable.ic_homenavbar);
-    tabLayout.getTabAt(1).setIcon(R.drawable.ic_lecturesnavbar);
+    tabLayout.getTabAt(0).setIcon(R.drawable.ic_lecturesnavbar);
+    tabLayout.getTabAt(1).setIcon(R.drawable.ic_homenavbar);
     tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.white));
 
     mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -268,6 +270,7 @@ public class MainActivity extends FragmentActivity
 
       }
     });
+    mViewPager.setCurrentItem(1);
 
   }
 
