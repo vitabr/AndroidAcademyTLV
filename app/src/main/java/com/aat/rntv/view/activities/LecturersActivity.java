@@ -37,7 +37,6 @@ public class LecturersActivity extends AppCompatActivity {
             new helpItem(getResources().getDrawable(R.drawable.img_lectureridan), "Idan Felix / ", "Application Developer, Development Architect, Project Manager and Team Leader in a wide variety of business software applications...", "Senior Android & Redhead"),
             new helpItem(getResources().getDrawable(R.drawable.img_lecturer_britt), "Britt Barak /", "Has great interpersonal and analytical abilities. Take initiative, ownership, and leadership for excellent task completion..", "Android Lead Devloper, Real"),
             new helpItem(getResources().getDrawable(R.drawable.img_lecturer_muriel), "Muriel Felix /", "The latest edition to th Android Academny team, That added all the color to pur life. A Graphic Designer student... ", "Android Designer")
-
         };
 
         ArAdapter adaper = new ArAdapter(Item);
@@ -48,7 +47,7 @@ public class LecturersActivity extends AppCompatActivity {
     }
 
     public class ArAdapter extends RecyclerView.Adapter<ArAdapter.vh>{
-helpItem[] item;
+        helpItem[] item;
         public  ArAdapter(helpItem[] item ){
             this.item = item;
         }
