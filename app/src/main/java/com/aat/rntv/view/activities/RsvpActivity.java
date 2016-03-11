@@ -11,8 +11,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.aat.rntv.business.SharedPref;
 import com.aat.rntv.business.Utils;
+import com.aat.rntv.model.FirebaseAttendant;
 import com.champions.are.we.androidacademytlv.R;
+import com.firebase.client.Firebase;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
@@ -25,6 +28,8 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
     private static final String LESSON_NUMBER = "lessonNumber";
     private static final String LESSON_TITLE = "title";
     private static final String LESSON_ATTENDANTS = "attendants";
+
+    private String mLessonNumber;
 
     private Calendar mCalendar = Calendar.getInstance();
 
@@ -50,11 +55,11 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rsvp);
 
-        String lessonNumber = getIntent().getStringExtra(LESSON_NUMBER);
+        mLessonNumber = getIntent().getStringExtra(LESSON_NUMBER);
         String lessonTitle = getIntent().getStringExtra(LESSON_TITLE);
         String attendants = getIntent().getStringExtra(LESSON_ATTENDANTS);
 
-        prepareViews(lessonNumber, lessonTitle, attendants);
+        prepareViews(mLessonNumber, lessonTitle, attendants);
     }
 
     private void prepareViews(String lessonNumber, String lessonTitle, String attCount) {
@@ -236,6 +241,12 @@ public class RsvpActivity extends AppCompatActivity implements View.OnClickListe
         if (mAddCalendar) {
             createCalendarEvent();
         }
+
+        Firebase firebase = new Firebase("https://flickering-torch-6484.firebaseio.com/Course_4/Lessons/"+mLessonNumber);
+
+        Firebase attendanceRef = firebase.child("mAttendants").child(SharedPref.getUserId());
+        FirebaseAttendant attendant = new FirebaseAttendant("blat1", "blat2");//(SharedPref.getProfileImageURL(), SharedPref.getDisplayName());
+        attendanceRef.setValue(attendant);
 
         finish();
     }
