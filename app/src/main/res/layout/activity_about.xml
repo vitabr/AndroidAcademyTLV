@@ -7,41 +7,11 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <!-- Background -->
-    <ImageView
+    <android.support.v4.view.ViewPager
+        android:id="@+id/about_us_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg_splash"
-        android:scaleType="fitXY"/>
+        android:background="@android:color/holo_blue_bright"/>
 
-    <Space
-        android:id="@+id/spcCenter"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_centerInParent="true"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/spcCenter"
-        android:layout_margin="20dp"
-        >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  TExt  "
-            android:id="@+id/textView2"
-            android:textAlignment="center"/>
-    </RelativeLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/ivUurPhoto"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/we"
-        android:scaleType="centerCrop"/>
 
 </RelativeLayout>

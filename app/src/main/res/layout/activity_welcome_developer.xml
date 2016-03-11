@@ -22,7 +22,7 @@
         android:id="@+id/textsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spcCenter"
+        android:layout_below="@+id/spcCenter"
         android:layout_margin="20dp"
         android:layout_above="@+id/btnStart"
         >

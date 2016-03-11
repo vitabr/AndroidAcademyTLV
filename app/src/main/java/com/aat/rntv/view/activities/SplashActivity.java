@@ -2,7 +2,6 @@ package com.aat.rntv.view.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.TextUtils;
 
 import com.aat.rntv.business.SharedPref;
 import com.aat.rntv.business.Utils;
@@ -16,7 +15,7 @@ import java.util.TimerTask;
  */
 public class SplashActivity extends Activity {
 
-  private boolean mShouldPrintKeyHash = true;
+  private boolean mShouldPrintKeyHash = false;
 
   private TimerTask mTimerTask = new TimerTask() {
     @Override
@@ -24,14 +23,14 @@ public class SplashActivity extends Activity {
       String userId = SharedPref.getUserId();
       String profession = SharedPref.getProfession();
 
-//      startActivity(RsvpActivity.getIntent(SplashActivity.this, "1", "Title test..", "29"));
-      if (TextUtils.isEmpty(userId)) {
-        navigateToLogin();
-      } else if (TextUtils.isEmpty(profession)) {
-        navigateToSetup();
-      } else {
-        navigateToMainscreen();
-      }
+      startActivity(AboutActivity.getIntent(SplashActivity.this));
+//      if (TextUtils.isEmpty(userId)) {
+//        navigateToLogin();
+//      } else if (TextUtils.isEmpty(profession)) {
+//        navigateToSetup();
+//      } else {
+//        navigateToMainscreen();
+//      }
 
       finish();
     }
