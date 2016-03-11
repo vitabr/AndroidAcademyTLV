@@ -72,7 +72,7 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
         Backend.performFacebookLogin(LoginActivity.this, LoginActivity.this, mCallbackManager);
         break;
       case R.id.btnSkip:
-        startActivity(SetupActivity.getIntent(this));
+        startActivity(MainActivity.getIntent(this));
         break;
     }
   }
