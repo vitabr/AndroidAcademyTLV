@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:padding="10dp"
-    card_view:cardCornerRadius="15dp">
+    card_view:cardCornerRadius="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,6 +20,12 @@
         android:scaleType="fitXY"
         android:src="@drawable/img_homepic"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_shadow"/>
+
+
     <TextView
         android:id="@+id/item_title"
         android:layout_width="wrap_content"
@@ -28,7 +34,6 @@
         android:layout_alignParentBottom="true"
         android:singleLine="true"
         android:ellipsize="end"
-        android:elevation="4dp"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="15dp"
         android:textSize="20sp"
@@ -46,7 +51,6 @@
             android:textSize="15sp"
             android:singleLine="true"
             android:ellipsize="end"
-            android:elevation="4dp"
             android:textColor="@color/white"
             />
     </RelativeLayout>
