@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.aat.rntv.BaseApplication;
 import com.aat.rntv.model.Lesson;
 import com.champions.are.we.androidacademytlv.R;
+import com.squareup.picasso.Picasso;
 
 import io.realm.RealmResults;
 
@@ -49,8 +51,6 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
     @Override
     public MainListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-
-      Log.e("VITO", "MainListAdapter:2-onCreateViewHolder");
       // create a new view
       View v = LayoutInflater.from(parent.getContext())
           .inflate(R.layout.item_main, parent, false);
@@ -67,10 +67,13 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
       Log.e("VITO", "MainListAdapter:3-onBindViewHolder");
       // - get element from your dataset at this position
       // - replace the contents of the view with that element
-      holder.mTitle.setText(((Lesson)mDataset.get(position)).getmTitle());
-      holder.mDescription.setText(((Lesson)mDataset.get(position)).getmDescription());
-      holder.mBackground.setImageResource(R.drawable.side_nav_bar);
 
+      Picasso.with(BaseApplication.getInstance())
+            .load(mDataset.get(position).getmBg())
+            .placeholder(R.drawable.ic_avatar_man)
+            .into(holder.mBackground);
+      holder.mTitle.setText(mDataset.get(position).getmTitle());
+      holder.mDescription.setText(mDataset.get(position).getmDescription());
     }
 
     // Return the size of your dataset (invoked by the layout manager)

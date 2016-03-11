@@ -12,6 +12,7 @@ public class FirebaseLesson {
     private String mDescription;
     private String mLecturerName;
     private String mStartDate;
+    private String mBg;
 
     public FirebaseLesson() {
         // empty default constructor, necessary for firebase to be able to deserialize lessons.
@@ -31,5 +32,9 @@ public class FirebaseLesson {
 
     public String getmStartDate() {
         return mStartDate;
+    }
+
+    public String getmBg() {
+        return mBg;
     }
 }

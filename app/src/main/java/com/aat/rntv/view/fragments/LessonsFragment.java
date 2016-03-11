@@ -51,9 +51,9 @@ public class LessonsFragment extends Fragment implements Constants {
 
         Log.e("VITO", "MainFragment:onViewCreated");
 
-        mTitle = (CardView) view.findViewById(R.id.card_view);
-        mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
-        mLessonDate = (TextView) view.findViewById(R.id.lesson_date);
+//        mTitle = (CardView) view.findViewById(R.id.card_view);
+//        mLessonTitle = (TextView) view.findViewById(R.id.lesson_title);
+//        mLessonDate = (TextView) view.findViewById(R.id.lesson_date);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
 
         // use a linear layout manager
@@ -88,6 +88,7 @@ public class LessonsFragment extends Fragment implements Constants {
                             lesson1.setmDescription(lesson.getmDescription());
                             lesson1.setmLecturerName(lesson.getmLecturerName());
                             lesson1.setmStartDate(lesson.getmStartDate());
+                            lesson1.setmBg(lesson.getmBg());
                         }
                     });
                 }

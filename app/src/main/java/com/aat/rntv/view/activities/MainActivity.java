@@ -2,7 +2,6 @@ package com.aat.rntv.view.activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -22,9 +21,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,11 +29,8 @@ import com.aat.rntv.business.Utils;
 import com.aat.rntv.model.Constants;
 import com.aat.rntv.model.Lesson;
 import com.aat.rntv.model.User;
-import com.aat.rntv.view.fragments.FavoritesFragment;
 import com.aat.rntv.view.fragments.LessonsFragment;
 import com.aat.rntv.view.fragments.MainFragment;
-import com.aat.rntv.view.fragments.PickUpsFragment;
-import com.aat.rntv.view.fragments.RcvpFragment;
 import com.aat.rntv.view.view_utils.CircleTransform;
 import com.champions.are.we.androidacademytlv.R;
 import com.squareup.picasso.Picasso;
@@ -61,10 +54,6 @@ public class MainActivity extends FragmentActivity
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    // remove title
-    requestWindowFeature(Window.FEATURE_NO_TITLE);
-    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_main);
 
     Realm realm = Realm.getInstance(this);
@@ -255,6 +244,7 @@ public class MainActivity extends FragmentActivity
     tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
     tabLayout.getTabAt(0).setIcon(R.drawable.ic_homenavbar);
     tabLayout.getTabAt(1).setIcon(R.drawable.ic_lecturesnavbar);
+    tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.white));
 
     mViewPager = (ViewPager) findViewById(R.id.pager);
     mViewPager.setAdapter(pagerAdapter);

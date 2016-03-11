@@ -13,6 +13,7 @@ public class Lesson extends RealmObject {
     private String mTitle;
     private String mDescription;
     private String mLecturerName;
+    private String mBg;
     private String mStartDate;
 
     public Lesson() {
@@ -33,6 +34,14 @@ public class Lesson extends RealmObject {
 
     public void setmStartDate(String mStartDate) {
         this.mStartDate = mStartDate;
+    }
+
+    public String getmBg() {
+        return mBg;
+    }
+
+    public void setmBg(String mBg) {
+        this.mBg = mBg;
     }
 
     public String getmTitle() {
